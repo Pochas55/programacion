@@ -65,7 +65,16 @@ function rojo(evento) {
 	var fecha = new Date(),
 		hora = fecha.getHours(),
 		hojaCSS = d.createElement('link'),
-		saludo = d.querySelector('#saludo');
+		saludo = d.querySelector('#saludo'),
+		btnIniciarReloj = d.querySelector('#iniciar-reloj'),
+		btnIniciarAlarma = d.querySelector('#iniciar-alarma'),
+		btnDetenerReloj = d.querySelector('#detener-reloj'),
+		btnDetenerAlarma = d.querySelector('#detener-alarma'),
+		fechaFormato = fecha.toLocaleTimeString(),
+		reloj = d.querySelector('#reloj'),
+		alarma = d.createElement('audio'),
+		temporizadorReloj,
+		temporizadorAlarma;
 
 	function saludar(e) {
 		/*
@@ -105,4 +114,28 @@ function rojo(evento) {
 	console.log(fecha, hora);
 
 	w.onload = saludar;
+	reloj.style.fontSize = '500%';
+	alarma.src = './audio/alarma.mp3';
+	//alarma.controls = true;
+	//d.body.appendChild(alarma);
+
+	btnIniciarReloj.onclick = function () {
+		temporizadorReloj = setInterval(function () {
+			reloj.innerHTML = new Date().toLocaleTimeString();
+		}, 1000);
+	};
+
+	btnIniciarAlarma.addEventListener('click', function () {
+		temporizadorAlarma = setTimeout(function () {
+			alarma.play();
+		}, 3000);
+	});
+
+	btnDetenerReloj.onclick = function () {
+		clearInterval(temporizadorReloj);
+	};
+
+	btnDetenerAlarma.addEventListener('click', function () {
+		clearTimeout(temporizadorAlarma);
+	});
 })(document, window);
