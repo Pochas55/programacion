@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Media Queries</title>
+	<style>
+		html { font-size: 16px; }
+		
+		.desktop { display: none; }
+
+		@media screen and (min-width: 64em) {
+			.desktop { display: block; }
+
+			.mobile { display: none; }
+		}
+	</style>
+</head>
+<body>
+	<h1>Media Queries</h1>
+	<!-- 
+	<section class="mobile">
+		<div>
+			<a href="https://www.youtube.com/watch?v=jXFldV3ImU0" target="_blank">Ver Video</a>
+		</div>
+		<div>
+			<a href="https://www.google.com.mx/maps/place/Torre+Eiffel/@48.8583701,2.2922926,17z/data=!4m6!1m3!3m2!1s0x47e66e2964e34e2d:0x8ddca9ee380ef7e0!2sTorre+Eiffel!3m1!1s0x47e66e2964e34e2d:0x8ddca9ee380ef7e0" target="_blank">Ver Mapa</a>
+		</div>
+	</section>
+	<section class="desktop">
+		<div>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/jXFldV3ImU0" frameborder="0" allowfullscreen></iframe>
+		</div>
+		<div>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.9916256937586!2d2.2922926156743895!3d48.858370079287475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTorre+Eiffel!5e0!3m2!1ses-419!2smx!4v1461982266426" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		</div>
+	</section>
+	-->
+	<div id="youtube"></div>
+	<div id="gmaps"></div>
+	<script src="./js/04_media_queries.js"></script>
+</body>
+</html>

@@ -72,12 +72,73 @@
 		browserIcon,
 		whereIGo;
 
+	function createIcon(icon) {
+		var i = d.createElement('i');
+
+		i.classList.add('fa', 'fa-5x', icon);
+		i.style.padding = '1rem';
+		container.appendChild(i);
+	}
+
+	function detectDevice(e) {
+		deviceIcon = ( isMobile.any() ) ? 'fa-mobile' : 'fa-desktop' ;
+		createIcon(deviceIcon);
+		e.target.removeEventListener('click', detectDevice);
+	}
+
+	function detectPlatform(e) {
+		if ( isDesktop.windows() || isMobile.windows() ) {
+			platformIcon = 'fa-windows';
+		} else if ( isDesktop.mac() || isMobile.ios() ) {
+			platformIcon = 'fa-apple';
+		} else if ( isMobile.android() ) {
+			platformIcon = 'fa-android';
+		} else if ( isDesktop.linux() ) {
+			platformIcon = 'fa-linux';
+		} else {
+			platformIcon = 'fa-question';
+		}
+
+		createIcon(platformIcon);
+		e.target.removeEventListener('click', detectPlatform);
+	}
+
+	function detectBrowser(e) {
+		browserIcon = ( isBrowser.ie() ) ? 'fa-internet-explorer' : 'fa-' + isBrowser.any();
+		createIcon(browserIcon);
+		e.target.removeEventListener('click', detectBrowser);
+	}
+
 	w.onload = function () {
+		/*
 		console.log(
 			ua,
 			mobile,
 			desktop,
-			browsers
+			browsers,
+			isMobile,
+			isMobile.android(),
+			isMobile.any(),
+			isDesktop.any()
 		);
+		*/
+
+		liUserAgent.textContent = ua;
+		liPlatform.textContent = ( isMobile.any() ) ? isMobile.any() : isDesktop.any() ;
+		liBrowser.textContent = isBrowser.any();
+
+		btnDevice.addEventListener('click', detectDevice);
+		btnPlatform.addEventListener('click', detectPlatform);
+		btnBrowser.addEventListener('click', detectBrowser);
+		btnRedirect.addEventListener('click', function () {
+			whereIGo = ( isMobile.any() ) ? 'http://m.chilango.com' : 'http://chilango.com';
+			w.location.href = whereIGo;
+		});
+
+		/*
+		//Redirección automática
+		whereIGo = ( isMobile.any() ) ? 'http://m.chilango.com' : 'http://chilango.com';
+			w.location.href = whereIGo;
+		*/
 	};
 })(document, window, navigator);
