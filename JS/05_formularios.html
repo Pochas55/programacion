@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Formularios</title>
+	<link rel="stylesheet" href="./css/05_formularios.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css">
+</head>
+<body>
+	<h1>Formularios</h1>
+	<h2>Típico formulario de contacto con validaciones JS</h2>
+	<form action="">
+		<fieldset>
+			<legend>Envíanos tus comentarios</legend>
+			<div>
+				<label for="nombre_id">Nombre</label>
+				<input type="text" id="nombre_id" name="nombre" class="validate" title="Tu nombre">
+			</div>
+			<div>
+				<label for="email_id">Email</label>
+				<input type="text" id="email_id" name="email" class="validate" title="Tu email">
+			</div>
+			<div>
+				<label for="asunto_id">Asunto</label>
+				<input type="text" id="asunto_id" name="asunto" class="validate" title="Asunto a tratar">
+			</div>
+			<div>
+				<label for="comentarios_id">Comentarios</label>
+				<textarea id="comentarios_id" name="comentarios" class="validate" title="Tus comentarios" cols="50" rows="5"></textarea>
+			</div>
+			<div>
+				<input type="submit" value="enviar">
+			</div>
+			<div class="preload  hidden">
+				<i class="fa  fa-refresh  fa-spin  fa-5x"></i>
+			</div>
+			<div class="message  hidden">
+				<p>Muchas gracias por tus comentarios</p>
+			</div>
+		</fieldset>
+	</form>
+	<h2>Típico formulario de contacto con validaciones HTML5</h2>
+	<form action="">
+		<legend>Envíanos tus comentarios</legend>
+		<div>
+			<input type="text" name="nombre" title="Tu nombre" placeholder="Escribe tu nombre" pattern="[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+" autofocus required>
+		</div>
+		<div>
+			<input type="email" name="email" title="Tu email" placeholder="Escribe tu email" pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}" required>
+		</div>
+		<div>
+			<input type="text" name="asunto" title="Asunto a tratar" placeholder="Asunto a tratar" required>
+		</div>
+		<div>
+			<textarea name="comentarios" title="Tus comentarios" placeholder="Escribe tus comentarios" cols="50" rows="5" required></textarea>
+		</div>
+		<div>
+			<input type="submit" value="enviar">
+		</div>
+		<div class="preload  hidden">
+			<i class="fa  fa-refresh  fa-spin  fa-5x"></i>
+		</div>
+		<div class="message  hidden">
+			<p>Muchas gracias por tus comentarios</p>
+		</div>
+	</form>
+	<script src="./js/05_formularios.js"></script>
+</body>
+</html>
