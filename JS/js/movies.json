@@ -1,6 +1,22 @@
 {
-	"title" : "Rocky",
-	"year" : "1976",
-	"genres" : " Drama, Sport",
-	"poster" : "http://ia.media-imdb.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+	"movies" : [
+		{
+			"title" : "Rocky",
+			"year" : "1976",
+			"genres" : "Drama, Sport",
+			"poster" : "http://ia.media-imdb.com/images/M/MV5BMTY5MDMzODUyOF5BMl5BanBnXkFtZTcwMTQ3NTMyNA@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+		},
+		{
+			"title" : "The Dark Knight",
+			"year" : "2008",
+			"genres" : "Action, Crime, Drama",
+			"poster" : "http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"
+		},
+		{
+			"title" : "Matando Cabos",
+			"year" : "2004",
+			"genres" : "Action, Adventure, Comedy",
+			"poster" : "http://ia.media-imdb.com/images/M/MV5BMTI2MzUzNTc1N15BMl5BanBnXkFtZTcwOTM1NzYyMQ@@._V1_UY268_CR2,0,182,268_AL_.jpg"
+		}
+	]
 }
