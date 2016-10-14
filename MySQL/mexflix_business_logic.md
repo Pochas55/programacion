@@ -1,31 +1,21 @@
 # Lógica de Negocio de Mexflix
+
 ## Mexflix: Base de Datos de Películas y Series
 
-### movieserie
+### movies
 	imdb_id,
 	title,
 	plot,
-	genres, (catálogo de muchas opciones)
 	author,
 	actors,
-	premiere,
-	trailer,
-	poster,
-	rating,
+	genres, (catálogo de muchas opciones)
 	country, (catálogo de muchas opciones)
+	premiere,
+	poster,
+	trailer,
+	rating,
 	category, (catálogo de una opción)
-	status (catálogo de una opción)
-
-### category
-	movie
-	serie
-
-### status
-	Coming Soon
-	Release
-	In Issue
-	Finished
-	Canceled
+	state (catálogo de una opción)
 
 ### genres [Géneros de IMDB](http://www.imdb.com/genre)
 	Action
@@ -55,7 +45,7 @@
 	War
 	Western
 
-### country [Países del Mundo 2016](https://www.saberespractico.com/estudios/geografia-estudios/paises/paises-del-mundo-2013/)
+### countries [Países del Mundo 2016](https://www.saberespractico.com/estudios/geografia-estudios/paises/paises-del-mundo-2013/)
 	Afganistán
 	Albania
 	Alemania
@@ -250,3 +240,14 @@
 	Yibuti
 	Zambia
 	Zimbabue
+
+### categories
+	Movie
+	Serie
+
+### status
+	Coming Soon
+	Release
+	In Issue
+	Finished
+	Canceled

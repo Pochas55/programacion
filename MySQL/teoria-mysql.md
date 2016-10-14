@@ -1,6 +1,9 @@
-# Bases de Datos
+# Bases de Datos con MySQL
+
+![MySQL](http://bextlan.com/img/para-cursos/MySQL.png)
 
 ## Índice
+
 1. [Conceptos Básicos](#conceptos-básicos)
 1. [Sistemas Gestores de Bases de Datos](#sistemas-gestores-de-bases-de-datos)
 1. [MySQL](#mysql)
@@ -9,21 +12,26 @@
 1. [Sintaxis SQL](#sintaxis-sql)
 1. [Sentencias de Objetos](#sentencias-de-objetos)
 1. [Sentencias de Datos](#sentencias-de-datos)
+1. [MySQL Avanzado](#mysql-avanzado)
 
 
 ## Conceptos Básicos
 
 ### Dato
+
 Mínima unidad de Información
 Es un valor (numérico, alfabético, algorítmico, espacial, etc)  que por sí sólo no dice mucho
 
 ### Información
+
 Conjunto organizado de datos procesados, que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje
 
 ### Base de Datos
+
 Son bancos de información que contienen datos relativos a diversas temáticas y categorizados de distinta manera, pero que comparten entre sí algún tipo de vínculo o relación que busca ordenarlos y clasificarlos en conjunto
 
 ### Lógica de Negocio
+
 Es la parte de un sistema que se encarga de codificar las reglas de funcionamiento del mundo real que determinan como la información puede ser creada, mostrada, cambiada y eliminada. 
 Son rutinas que realizan entradas de datos, consultas a los datos, generación de informes y más específicamente todo el procesamiento que se realiza detrás de la aplicación visible para el usuario (Backend)
 
@@ -76,28 +84,32 @@ Son rutinas que realizan entradas de datos, consultas a los datos, generación d
 ### Herramientas de Gestión
 
 #### Terminal
+
 ```SQL
 windows: cd c:/xampp/mysql/bin
 mac: cd /Applications/XAMPP/bin
 mysql -u root -p
 ENTER PASSWORD: 
 SHOW DATABASES;
-USE nombre_bd;
+USE db_name;
 SHOW TABLES;
-DESCRIBE nombre_tabla
-SHOW COLUMNS FROM nombre_tabla
-SELECT campos_tabla FROM nombre_tabla;
-SELECT * FROM nombre_tabla;
+DESCRIBE table_name
+SHOW COLUMNS FROM table_name
+SELECT table_fields FROM table_name;
+SELECT * FROM table_name;
 ```
 
 #### WebApp
+
 * [phpMyAdmin](https://www.phpmyadmin.net/) teniendo [XAMPP](http://localhost/phpmyadmin)
 
 #### Software
+
 * [MySQL WorkBench](https://www.mysql.com/products/workbench/) (libre)
 * [Navicat](http://www.navicat.com/es) (pago)
 
 ### Documentación
+
 * [Documentación Oficial de MySQL](http://dev.mysql.com/doc/)
 * [MySQL con Clase](http://mysql.conclase.net/curso/index.php)
 
@@ -111,12 +123,11 @@ Es un diagrama que permite representar las entidades relevantes de un sistema de
 Formalmente, los diagramas ER son un lenguaje gráfico para describir conceptos. Informalmente, son simples dibujos o gráficos que describen información que trata un sistema de información y el software que lo automatiza
 
 Elementos del Modelo Entidad-Relación
+
 * **Entidades**
 	Son objetos distinguible del resto; pe en un sistema bancario, las personas y las cuentas son entidades. Éstas pueden ser entes concretos, como una persona o un avión, o abstractas, como un préstamo o una reserva. Se representan por medio de un rectángulo
-
 * **Atributos**
 	Con propiedades de las entidades. Se representan mediante un círculo o elipse, cuando un atributo es identificativo de la entidad se subraya
-
 * **Relación**
 	Describe la dependencia entre entidades o permite la asociación de las mismas; pe tenemos 2 entidades CLIENTE y HABITACIÓN, una relación sería que el cliente 'Pepito' tiene 'ocupada' la habitación '519'. Se representan por medio de un verbo de acción dentro de un rombo que une entidades
 
@@ -311,10 +322,12 @@ Es una buena práctica aplicar la 5FN, cuando tenemos una extensa y compleja est
 ## Sintaxis SQL
 
 ### Tipos de Sentencias
+
 * De Objetos
 * De Datos
 
 ### Concepto CRUD
+
 * Create
 * Read
 * Update
@@ -324,34 +337,52 @@ Es una buena práctica aplicar la 5FN, cuando tenemos una extensa y compleja est
 
 **[⬆ regresar al índice](#Índice)**
 
+
 ## Sentencias de Objetos
+
 Objetos básicos en SQL: Bases de Datos, Tablas y Usuarios (y sus Privilegios)
 		
 ### Bases de Datos
+
 ```SQL
-CREATE DATABASE
-DROP DATABASE
-SHOW DATABASES
-USE
+CREATE DATABASE a_data_base;
+DROP DATABASE a_data_base;
+SHOW DATABASES;
+USE a_data_base;
 ```
 		
 ### Tablas
+
 ```SQL
-CREATE TABLE
-DROP TABLE
-ALTER TABLE [ADD COLUMN || DROP COLUMN || MODIFY]
-DESCRIBE
+CREATE TABLE a_table();
+DROP TABLE a_table;
+ALTER TABLE a_table [ADD COLUMN || DROP COLUMN || MODIFY];
+DESCRIBE a_table;
 ```
 
+* Motores de Tablas
+	* [MyISAM vs InnoDB](http://www.webreunidos.es/blog/myisam-vs-innodb/)
+	* [¿Qué motor elegir?](http://blog.arsys.es/myisam-o-innodb-elige-tu-motor-de-almacenamiento-mysql/)
+	* [Diferencias](http://blog.openalfa.com/diferencias-entre-innodb-y-myisam-en-mysql)
+* [Tipos de Datos en MySQL](http://mysql.conclase.net/curso/index.php?cap=005#)
+* [Restricciones](http://blog.openalfa.com/como-trabajar-con-restricciones-de-clave-externa-en-mysql)
+	* ON DELETE y ON UPDATE
+		* RESTRICT
+		* CASCADE
+		* SET NULL
+		* NO ACTION
+
 ### Usuarios
+
 ```SQL
 CREATE USER my_user IDENTIFIED BY 'my_password';
 SELECT PASSWORD('my_password'); //contraseña en hash
-CREATE USER my_user IDENTIFIED BY PASSWORD 'clave hash';
+CREATE USER my_user IDENTIFIED BY PASSWORD 'hash_value';
 DROP USER my_user;
 ```
 
 ### Privilegios
+
 ```SQL
 GRANT ALL PRIVILEGES ON data_base.table TO 'my_user'@'my_host' -> IDENTIFIED BY 'my_password' WITH GRANT OPTION;
 SHOW GRANTS for 'my_user'@'my_host';
@@ -359,23 +390,10 @@ REVOKE [PRIVILEGES], GRANT OPTION FROM 'my_user'@'my_host';
 FLUSH PRIVILEGES;
 ```
 
-### Más info interesante sobre objetos
-* Motores de Tablas
-	* [MyISAM vs InnoDB](http://www.webreunidos.es/blog/myisam-vs-innodb/)
-	* [¿Qué motor elegir?](http://blog.arsys.es/myisam-o-innodb-elige-tu-motor-de-almacenamiento-mysql/)
-	* [Diferencias](http://blog.openalfa.com/diferencias-entre-innodb-y-myisam-en-mysql)
 * [Usuarios y Privilegios](http://rm-rf.es/usuario-mysql-como-crear-borrar-y-asignar-privilegios/)
-* [Tipos de Datos en MySQL](http://mysql.conclase.net/curso/index.php?cap=005#)
-* [Búsquedas FULLTEXT](http://dev.mysql.com/doc/internals/en/full-text-search.html)
-* [Restricciones](http://blog.openalfa.com/como-trabajar-con-restricciones-de-clave-externa-en-mysql)
-	* ON DELETE y ON UPDATE
-		* RESTRICT
-		* CASCADE
-		* SET NULL
-		* NO ACTION
-* [Encriptación](http://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html)
 
 **[⬆ regresar al índice](#Índice)**
+
 
 ## Sentencias de Datos
 
@@ -385,7 +403,9 @@ FLUSH PRIVILEGES;
 * Delete - **`DELETE`**
 
 ### CREATE
+
 Insertar un registro
+
 ```SQL
 INSERT INTO table (field_1, field_2, ..., field_n) 
 	VALUES (value_1, value2, ..., value_n);
@@ -395,6 +415,7 @@ INSERT INTO table
 ```
 
 Insertar varios registros:
+
 ```SQL
 INSERT INTO table (field_1, field_2, ..., field_n) VALUES
 	(value_1, value2, ..., value_n),
@@ -404,92 +425,154 @@ INSERT INTO table (field_1, field_2, ..., field_n) VALUES
 ```
 
 ### READ
+
 Leer todos los campos de la tabla:
+
 ```SQL
 SELECT * FROM table;
 ```
 
 Leer algunos campos de la tabla:
-```SQL
-SELECT field_1, field_2, field_n FROM table
-```
 
-Leer un registro en particular buscando el valor de un campo
 ```SQL
-SELECT * FROM table WHERE field_1 = 'valor_1'
-```
-
-Leer un registro en particular buscando el valor de más de 2 campos con operadores lógicos
-```SQL
-SELECT * FROM table WHERE field_1 = 'valor_1' AND field_2 = 'valor_2'
-SELECT * FROM table WHERE field_1 = 'valor_1' OR field_2 = 'valor_2'
-```
-
-Leer un registro en particular buscando el valor similar de un campo
-```SQL
-SELECT * FROM table WHERE field_1 LIKE '%valor_1'
-SELECT * FROM table WHERE field_1 LIKE 'valor_1%'
-SELECT * FROM table WHERE field_1 LIKE '%valor_1%'
+SELECT field_1, field_2, field_n FROM table;
 ```
 
 Saber cuantos registros tiene mi tabla:
+
 ```SQL
 SELECT COUNT(*) FROM table;
 ```
 
+Leer un registro en particular buscando el valor de un campo
+
+```SQL
+SELECT * FROM table WHERE field_1 = 'value_1';
+```
+
+Leer registros en particular buscando diferentes valores en un campo
+
+```SQL
+SELECT * FROM table WHERE field_1 IN ('value_1', 'value_2', 'value_n');
+```
+
+Leer un registro en particular buscando el valor similar en un campo
+
+```SQL
+SELECT * FROM table WHERE field_1 LIKE '%value_1';
+SELECT * FROM table WHERE field_1 LIKE 'value_1%';
+SELECT * FROM table WHERE field_1 LIKE '%value_1%';
+```
+
+Leer un registro en particular buscando el valor con operadores lógicos
+
+```SQL
+SELECT * FROM table WHERE field_1 = 'value_1' AND field_2 = 'value_2';
+SELECT * FROM table WHERE field_1 = 'value_1' OR field_2 = 'value_2';
+SELECT * FROM table WHERE NOT field_1 = 'value_1';
+SELECT * FROM table WHERE field_1 != 'value_1';
+```
+
 ### UPDATE
+
 Siempre agregar la clausula WHERE para evitar actualizar toda la tabla
+
 ```SQL
 UPDATE table 
 	SET field_1 = 'value_1', field_2 = 'value_2', ..., field_n = value_n  
-	WHERE field = value
+	WHERE field = value;
 ```
 
 ### DELETE
+
 Siempre agregar la clausula WHERE para evitar eliminar toda la tabla
 
 **[NO TE OLVIDES DEL WHERE EN EL DELETE FROM](https://www.youtube.com/watch?v=i_cVJgIz_Cs)**
 
 ```SQL
-DELETE FROM table WHERE field = value
+DELETE FROM table WHERE field = value;
 ```
 
-### CONSULTAS MÚLTIPLES
-Datos de 2 o más tablas
-```SQL
-SELECT * FROM table1 AS t1 
-	INNER JOIN table2 AS t2
+**[⬆ regresar al índice](#Índice)**
 
-SELECT * FROM table1 AS t1 
-	INNER JOIN table2 AS t2
-	ON t1.a_field = t2.a_field
 
-SELECT t1.field1, t1.field2, t1.field3, t2.field1, t2.field5
-	FROM table1 AS t1 
-	INNER JOIN table2 AS t2
-	ON t1.field1 = t2.field5
+## MySQL Avanzado
 
-	WHERE t1.field1 = 'a_value'
-	ORDER BY t1.field3 DESC
-```
+* **CONSULTAS MÚLTIPLES:** Datos de 2 o más tablas
+	```SQL
+	SELECT * FROM table_1 AS t1 
+		INNER JOIN table_2 AS t2;
 
-* [Definición de Join](https://es.wikipedia.org/wiki/Join)
-* [Tipos de Joins](http://www.nebaris.com/post/77/tipos-de-join-en-sql)
-* [Joins de Manera Gráfica](http://www.genbetadev.com/bases-de-datos/explicacion-grafica-de-los-join-en-sql-y-sus-resultados)
+	SELECT * FROM table_1 AS t1 
+		INNER JOIN table_2 AS t2
+		ON t1.a_field = t2.a_field;
 
-### CONSULTAS FULLTEXT KEY
+	SELECT t1.field_1, t1.field_2, t1.field_3, t2.field_1, t2.field_5
+		FROM table_1 AS t1 
+		INNER JOIN table_2 AS t2
+		ON t1.field_1 = t2.field_5
+		WHERE t1.field_1 = 'a_value'
+		ORDER BY t1.field_3 DESC;
+	```
+	* [Definición de Join](https://es.wikipedia.org/wiki/Join)
+	* [Tipos de Joins](http://www.nebaris.com/post/77/tipos-de-join-en-sql)
+	* [Joins de Manera Gráfica](http://www.genbetadev.com/bases-de-datos/explicacion-grafica-de-los-join-en-sql-y-sus-resultados)
+* **SUBCONSULTAS:** Una consulta dentro de otra
+	```SQL
+	SELECT t1.field_1, t1.field_2, ( 
+			SELECT COUNT(*)
+			FROM table_2 AS t2
+			WHERE t2.field_1 = t1.field_1
+		) AS subquery_field
+		FROM table_1 AS t1;
 
-```SQL
-SELECT * FROM table
-	WHERE MATCH(field1, field2, field3, field4)
-	AGAINST('a_search' IN BOOLEAN MODE);
+	SELECT t1.field_1, t1.field_2, t1.field_3, ( 
+			SELECT field_1
+			FROM table_2 AS t2
+			WHERE t2.field_1 = t1.field_1
+		) AS subquery_field
+		FROM table_1 AS t1;
+	```
+* **[CONSULTAS FULLTEXT KEY](http://dev.mysql.com/doc/internals/en/full-text-search.html):** Consulta que busca en varios campos de una tabla, se debe definir el campo FULLTEXT en la estructura de la tabla
+	```SQL
+	CREATE TABLE a_table(
+		table_id INTEGER UNSIGNED PRIMARY KEY,
+		field_1 VARCHAR(80),
+		field_2 VARCHAR(80),
+		field_3 VARCHAR(80),
+		field_4 VARCHAR(80),
+		FULLTEXT KEY a_search(field_1, field_2, field_3, field_4)
+	);
 
-SELECT t1.field1, t1.field2, t2.field1, t2.field4
-	FROM table1 AS t1
-	INNER JOIN table2 AS t2
-	ON t1.field1 = t2.field4
-	WHERE MATCH(t1.field1, t1.field2, t2.field1, t2.field4)
-	AGAINST('a_search' IN BOOLEAN MODE);
-```
+	SELECT * FROM table
+		WHERE MATCH(field_1, field_2, field_3, field_4)
+		AGAINST('a_search' IN BOOLEAN MODE);
+
+	SELECT t1.field_1, t1.field_2, t2.field_1, t2.field_4
+		FROM table_1 AS t1
+		INNER JOIN table_2 AS t2
+		ON t1.field_1 = t2.field_4
+		WHERE MATCH(t1.field_1, t1.field_2, t2.field_1, t2.field_4)
+		AGAINST('a_search' IN BOOLEAN MODE);
+	```
+* **[TRANSACCIONES SQL](https://styde.net/transacciones-de-bases-de-datos-mysql-en-php/):** Cuando varias sentencias se tienen que ejecutar al mismo tiempo como si fueran una sola, en caso de que exista un error los cambios efectuados en la base de datos se cancelan
+	```SQL
+	START TRANSACTION;
+
+		INSERT INTO table_1 (field_1, field_2, field_3)
+			VALUES ('value_1', 'value_2', 'value_3');
+
+		INSERT INTO table_2 (field_1, field_2, field_3)
+			VALUES ('value_1', 'value_2', 'value_3');
+
+		INSERT INTO table_3 (field_1, field_2, field_3)
+			VALUES ('value_1', 'value_2', 'value_3');
+
+	COMMIT; /* ROLLBACK; */
+	```
+* [Procedimientos Almacenados](https://www.codejobs.biz/es/blog/2014/07/09/como-hacer-un-procedimiento-almacenado-en-mysql-sin-morir-en-el-intento)
+* [Función GROUP_CONCAT](http://otroblogmas.com/funcion-group_concat-de-mysql/)
+* [Funciones de Encriptación](http://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html)
+* [Función REPLACE (INSERT + UPDATE)](http://dev.mysql.com/doc/refman/5.7/en/replace.html)
 
 **[⬆ regresar al índice](#Índice)**
