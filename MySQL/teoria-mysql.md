@@ -498,6 +498,45 @@ DELETE FROM table WHERE field = value;
 
 ## MySQL Avanzado
 
+* [Funciones de Encriptación](http://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html)
+* **[CONSULTAS FULLTEXT KEY](http://dev.mysql.com/doc/internals/en/full-text-search.html):** Consulta que busca en varios campos de una tabla, se debe definir el campo FULLTEXT en la estructura de la tabla
+	```SQL
+	CREATE TABLE a_table(
+		table_id INTEGER UNSIGNED PRIMARY KEY,
+		field_1 VARCHAR(80),
+		field_2 VARCHAR(80),
+		field_3 VARCHAR(80),
+		field_4 VARCHAR(80),
+		FULLTEXT KEY a_search(field_1, field_2, field_3, field_4)
+	);
+
+	SELECT * FROM table
+		WHERE MATCH(field_1, field_2, field_3, field_4)
+		AGAINST('a_search' IN BOOLEAN MODE);
+
+	SELECT t1.field_1, t1.field_2, t2.field_1, t2.field_4
+		FROM table_1 AS t1
+		INNER JOIN table_2 AS t2
+		ON t1.field_1 = t2.field_4
+		WHERE MATCH(t1.field_1, t1.field_2, t2.field_1, t2.field_4)
+		AGAINST('a_search' IN BOOLEAN MODE);
+	```
+* [Función REPLACE (INSERT + UPDATE)](http://dev.mysql.com/doc/refman/5.7/en/replace.html)
+* **[TRANSACCIONES SQL](https://styde.net/transacciones-de-bases-de-datos-mysql-en-php/):** Cuando varias sentencias se tienen que ejecutar al mismo tiempo como si fueran una sola, en caso de que exista un error los cambios efectuados en la base de datos se cancelan
+	```SQL
+	START TRANSACTION;
+
+		INSERT INTO table_1 (field_1, field_2, field_3)
+			VALUES ('value_1', 'value_2', 'value_3');
+
+		INSERT INTO table_2 (field_1, field_2, field_3)
+			VALUES ('value_1', 'value_2', 'value_3');
+
+		INSERT INTO table_3 (field_1, field_2, field_3)
+			VALUES ('value_1', 'value_2', 'value_3');
+
+	COMMIT; /* ROLLBACK; */
+	```
 * **CONSULTAS MÚLTIPLES:** Datos de 2 o más tablas
 	```SQL
 	SELECT * FROM table_1 AS t1 
@@ -533,46 +572,7 @@ DELETE FROM table WHERE field = value;
 		) AS subquery_field
 		FROM table_1 AS t1;
 	```
-* **[CONSULTAS FULLTEXT KEY](http://dev.mysql.com/doc/internals/en/full-text-search.html):** Consulta que busca en varios campos de una tabla, se debe definir el campo FULLTEXT en la estructura de la tabla
-	```SQL
-	CREATE TABLE a_table(
-		table_id INTEGER UNSIGNED PRIMARY KEY,
-		field_1 VARCHAR(80),
-		field_2 VARCHAR(80),
-		field_3 VARCHAR(80),
-		field_4 VARCHAR(80),
-		FULLTEXT KEY a_search(field_1, field_2, field_3, field_4)
-	);
-
-	SELECT * FROM table
-		WHERE MATCH(field_1, field_2, field_3, field_4)
-		AGAINST('a_search' IN BOOLEAN MODE);
-
-	SELECT t1.field_1, t1.field_2, t2.field_1, t2.field_4
-		FROM table_1 AS t1
-		INNER JOIN table_2 AS t2
-		ON t1.field_1 = t2.field_4
-		WHERE MATCH(t1.field_1, t1.field_2, t2.field_1, t2.field_4)
-		AGAINST('a_search' IN BOOLEAN MODE);
-	```
-* **[TRANSACCIONES SQL](https://styde.net/transacciones-de-bases-de-datos-mysql-en-php/):** Cuando varias sentencias se tienen que ejecutar al mismo tiempo como si fueran una sola, en caso de que exista un error los cambios efectuados en la base de datos se cancelan
-	```SQL
-	START TRANSACTION;
-
-		INSERT INTO table_1 (field_1, field_2, field_3)
-			VALUES ('value_1', 'value_2', 'value_3');
-
-		INSERT INTO table_2 (field_1, field_2, field_3)
-			VALUES ('value_1', 'value_2', 'value_3');
-
-		INSERT INTO table_3 (field_1, field_2, field_3)
-			VALUES ('value_1', 'value_2', 'value_3');
-
-	COMMIT; /* ROLLBACK; */
-	```
-* [Procedimientos Almacenados](https://www.codejobs.biz/es/blog/2014/07/09/como-hacer-un-procedimiento-almacenado-en-mysql-sin-morir-en-el-intento)
 * [Función GROUP_CONCAT](http://otroblogmas.com/funcion-group_concat-de-mysql/)
-* [Funciones de Encriptación](http://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html)
-* [Función REPLACE (INSERT + UPDATE)](http://dev.mysql.com/doc/refman/5.7/en/replace.html)
+* [Procedimientos Almacenados](https://www.codejobs.biz/es/blog/2014/07/09/como-hacer-un-procedimiento-almacenado-en-mysql-sin-morir-en-el-intento)
 
 **[⬆ regresar al índice](#Índice)**

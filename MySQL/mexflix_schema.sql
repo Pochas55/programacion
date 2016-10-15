@@ -274,6 +274,7 @@ CREATE TABLE movies(
 	rating DECIMAL(2,1) UNSIGNED DEFAULT 0,
 	category ENUM('Movie', 'Serie') NOT NULL,
 	state INTEGER UNSIGNED NOT NULL,
+	FULLTEXT KEY search(title, author, actors),
 	FOREIGN KEY(state)
 		REFERENCES status(state_id)
 		ON DELETE RESTRICT
@@ -284,7 +285,7 @@ INSERT INTO movies (imdb_id, title, plot, author, actors, premiere, poster, trai
 	('tt0903747', 'Breaking Bad', 'A chemistry teacher diagnosed with terminal lung cancer teams up with his former student to cook and sell crystal meth.', 'Vince Gilligan', 'Bryan Cranston, Anna Gunn, Aaron Paul, Dean Norris', '2008', 'http://ia.media-imdb.com/images/M/MV5BMTQ0ODYzODc0OV5BMl5BanBnXkFtZTgwMDk3OTcyMDE@._V1_SX300.jpg', 'https://www.youtube.com/watch?v=--z4YzxlT8o', 9.5, 'Serie', 4),
 	('tt0468569', 'The Dark Knight', 'Batman raises the stakes in his war on crime. With the help of Lieutenant Jim Gordon and District Attorney Harvey Dent, Batman sets out to dismantle the remaining criminal organizations that plague the city streets. The partnership proves to be effective, but they soon find themselves prey to a reign of chaos unleashed by a rising criminal mastermind known to the terrified citizens of Gotham as The Joker.', 'Christopher Nolan', 'Christian Bale, Heath Ledger, Aaron Eckhart, Michael Caine', '2008', 'http://ia.media-imdb.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg', 'https://www.youtube.com/watch?v=EXeTwQWrcwY', 9.0, 'Movie', 2);
 
-CREATE TABLE countries_x_movies(
+CREATE TABLE countries_x_movie(
 	cxm_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	movie CHAR(9) NOT NULL,
 	country INTEGER UNSIGNED NOT NULL,
@@ -298,7 +299,12 @@ CREATE TABLE countries_x_movies(
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE genres_x_movies(
+INSERT INTO countries_x_movie (cxm_id, movie, country) VALUES
+	(1, 'tt0903747', 60),
+	(2, 'tt0468569', 60),
+	(3, 'tt0468569', 142);
+
+CREATE TABLE genres_x_movie(
 	gxm_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	movie CHAR(9) NOT NULL,
 	genre INTEGER UNSIGNED NOT NULL,
@@ -311,6 +317,14 @@ CREATE TABLE genres_x_movies(
 		ON DELETE RESTRICT
 		ON UPDATE CASCADE
 );
+
+INSERT INTO genres_x_movie (gxm_id, movie, genre) VALUES
+	(1, 'tt0903747', 6),
+	(2, 'tt0903747', 8),
+	(3, 'tt0903747', 24),
+	(4, 'tt0468569', 1),
+	(5, 'tt0468569', 6),
+	(6, 'tt0468569', 8);
 
 CREATE TABLE users(
 	user VARCHAR(20) PRIMARY KEY,
