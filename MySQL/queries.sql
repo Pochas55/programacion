@@ -37,3 +37,16 @@ DELETE FROM countries;
 DELETE FROM users;
 
 UPDATE movies SET plot = 'No description';
+
+/* 
+	SENTENCIA REPLACE
+		Si el valor del campo clave y/o único  del registro a insertar existe, REPLACE lo elimina y agrega el nuevo registro (ejecuta 2 consultas 1 DELETE y 1 INSERT)
+
+		Si el valor del campo clave y/o único  del registro a insertar NO existe, REPLACE agrega el nuevo registro (ejecuta 1 consultas 1 INSERT)
+*/
+
+SELECT * FROM users;
+
+REPLACE INTO users (user, email, name, birthday, pass, role) VALUES ('@otro_usuario', 'otrousuario@loquesea.com', 'Otro Usuario', '1984-07-17', MD5('otro password'), 'User');
+
+REPLACE INTO users SET user = '@otro_usuario', email = 'otrousuario@loquesea.com', role = 'Admin';

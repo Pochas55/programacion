@@ -2,6 +2,16 @@
 
 /* movies */
 	/* create a movie */
+	START TRANSACTION;
+		INSERT INTO movies (imdb_id, title, plot, author, actors, premiere, poster, trailer, rating, category, state) VALUES
+			('tt0479143', 'Rocky', '', 'SylcesterStallone', '', '2006', '', '', 7.2, 'Movie', 2);
+
+		INSERT INTO genres_x_movie (movie, genre) VALUES
+			('tt0479143', 8);
+
+		INSERT INTO countries_x_movie (movie, country) VALUES
+			('tt0479143', 61);
+	COMMIT; /* ROLLBACK; */
 	/* read movies */
 	/* read a movie by imdb */
 	/* read a movie like title, author, actors */
@@ -12,7 +22,40 @@
 	/* read a movie by genre */
 	/* read a movie by country */
 	/* update a movie */
+	START TRANSACTION;
+		UPDATE movies 
+			SET title = 'Rocky Balboa',
+				plot = 'Thirty years after the ring of the first bell, Rocky Balboa comes out of retirement and dons his gloves for his final fight; against the reigning heavyweight champ Mason \'The Line\' Dixon.',
+				author = 'Sylvester Stallone',
+				actors = 'Sylvester Stallone, Burt Young, Antonio Tarver, Geraldine Hughes',
+				premiere = '2006',
+				poster = 'http://ia.media-imdb.com/images/M/MV5BMTM2OTUzNDE3NV5BMl5BanBnXkFtZTcwODczMzkzMQ@@._V1_SX300.jpg',
+				trailer = 'https://www.youtube.com/watch?v=8tab8fK2_3w',
+				rating = 7.2,
+				category = 'Movie',
+				state = 2
+			WHERE imdb_id = 'tt0479143';
+
+		DELETE FROM genres_x_movie WHERE movie = 'tt0479143';
+			
+		INSERT INTO genres_x_movie (movie, genre) VALUES
+			('tt0479143', 8),
+			('tt0479143', 22);
+
+		DELETE FROM countries_x_movie WHERE movie = 'tt0479143';
+
+		INSERT INTO countries_x_movie (movie, country) VALUES
+			('tt0479143', 60);
+	COMMIT; /* ROLLBACK; */
+
 	/* delete a movie */
+	START TRANSACTION;
+		DELETE FROM genres_x_movie WHERE movie = 'tt0479143';
+
+		DELETE FROM countries_x_movie WHERE movie = 'tt0479143';
+
+		DELETE FROM movies WHERE imdb_id = 'tt0479143';		
+	COMMIT; /* ROLLBACK; */
 
 /* genres */
 	/* create a genre */
@@ -65,11 +108,41 @@
 
 /* users */
 	/* create a user */
+	INSERT INTO users 
+		SET	user = '@usuario',
+			email = 'usuario@midominio.com',
+			name = 'Soy un Usuario',
+			birthday = '1988-09-08',
+			pass = MD5('un_password'),
+			role = 'Admin';
+
 	/* read users */
+	SELECT * FROM users;
+
 	/* read a user by user */
+	SELECT * FROM users WHERE user = '@usuario';
+
 	/* read a user by email */
+	SELECT * FROM users WHERE email = 'usuario@midominio.com';
+	
 	/* read a user by role */
+	SELECT * FROM users WHERE role = 'Admin';
+	
 	/* update a user */
 		/* update a data user */
+		UPDATE users 
+			SET name = 'Soy un Usuario',
+				birthday = '1988-08-07',
+				role = 'User' 
+			WHERE user = '@usuario' 
+				AND email = 'usuario@midominio.com';
 		/* update a password user */
+		UPDATE users
+			SET pass = MD5('un_nuevo_password')
+			WHERE user = '@usuario' 
+				AND email = 'usuario@midominio.com';
+	
 	/* delete a user */
+	DELETE FROM users
+		WHERE user = '@usuario'
+			AND email = 'usuario@midominio.com';
