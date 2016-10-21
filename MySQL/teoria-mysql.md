@@ -32,7 +32,7 @@ Son bancos de información que contienen datos relativos a diversas temáticas y
 
 ### Lógica de Negocio
 
-Es la parte de un sistema que se encarga de codificar las reglas de funcionamiento del mundo real que determinan como la información puede ser creada, mostrada, cambiada y eliminada. 
+Es la parte de un sistema que se encarga de codificar las reglas de funcionamiento del mundo real que determinan como la información puede ser creada, mostrada, cambiada y eliminada.
 Son rutinas que realizan entradas de datos, consultas a los datos, generación de informes y más específicamente todo el procesamiento que se realiza detrás de la aplicación visible para el usuario (Backend)
 
 **[⬆ regresar al índice](#Índice)**
@@ -89,7 +89,7 @@ Son rutinas que realizan entradas de datos, consultas a los datos, generación d
 windows: cd c:/xampp/mysql/bin
 mac: cd /Applications/XAMPP/bin
 mysql -u root -p
-ENTER PASSWORD: 
+ENTER PASSWORD:
 SHOW DATABASES;
 USE db_name;
 SHOW TABLES;
@@ -160,7 +160,7 @@ Las bases de datos relacionales se normalizan para:
 * Evitar la redundancia de los datos
 * Disminuir problemas de actualización de los datos en las tablas
 * Proteger la integridad de los datos
-		
+
 Para que las tablas de nuestra BD estén normalizadas deben cumplir las siguientes reglas:
 * Cada tabla debe tener su nombre único
 * No puede haber dos filas iguales
@@ -175,12 +175,12 @@ Estas 3 reglas de Normalización se les conoce como las 3 FORMAS NORMALES:
 
 **ALUMNOS**
 
- -------------------------------------------------------------------- 
+ --------------------------------------------------------------------
 | alumno  |	estudio_nivel |	estudio_nombre	 | materia_1 | materia_2 |
 | ------- | ------------- | ---------------- | --------- | --------- |
 | Juanito |	Maestría	  | Medios Virtuales | MySQL	 | PHP       |
 | Pepito  |	Licenciatura  |	Diseño Digital	 | MySQL	 | PHP       |
- -------------------------------------------------------------------- 
+ --------------------------------------------------------------------
 
 ### Primera Forma Normal:
 * NO repetir campos en las tablas (atributos atómicos)
@@ -341,7 +341,7 @@ Es una buena práctica aplicar la 5FN, cuando tenemos una extensa y compleja est
 ## Sentencias de Objetos
 
 Objetos básicos en SQL: Bases de Datos, Tablas y Usuarios (y sus Privilegios)
-		
+
 ### Bases de Datos
 
 ```SQL
@@ -350,7 +350,7 @@ DROP DATABASE a_data_base;
 SHOW DATABASES;
 USE a_data_base;
 ```
-		
+
 ### Tablas
 
 ```SQL
@@ -407,10 +407,10 @@ FLUSH PRIVILEGES;
 Insertar un registro
 
 ```SQL
-INSERT INTO table (field_1, field_2, ..., field_n) 
+INSERT INTO table (field_1, field_2, ..., field_n)
 	VALUES (value_1, value2, ..., value_n);
 
-INSERT INTO table 
+INSERT INTO table
 	SET field_1 = 'value_1', field_2 = 'value_2', ..., field_n = value_n;
 ```
 
@@ -478,7 +478,7 @@ SELECT * FROM table WHERE field_1 != 'value_1';
 Siempre agregar la clausula WHERE para evitar actualizar toda la tabla
 
 ```SQL
-UPDATE table 
+UPDATE table
 	SET field_1 = 'value_1', field_2 = 'value_2', ..., field_n = value_n  
 	WHERE field = value;
 ```
@@ -499,7 +499,7 @@ DELETE FROM table WHERE field = value;
 ## MySQL Avanzado
 
 * [Funciones de Encriptación](http://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html)
-* **[CONSULTAS FULLTEXT KEY](http://dev.mysql.com/doc/internals/en/full-text-search.html):** Consulta que busca en varios campos de una tabla, se debe definir el campo FULLTEXT en la estructura de la tabla
+* **[CONSULTAS FULLTEXT](http://dev.mysql.com/doc/internals/en/full-text-search.html):** Consulta que busca en varios campos de una tabla, se debe definir el campo FULLTEXT en la estructura de la tabla
 	```SQL
 	CREATE TABLE a_table(
 		table_id INTEGER UNSIGNED PRIMARY KEY,
@@ -507,21 +507,23 @@ DELETE FROM table WHERE field = value;
 		field_2 VARCHAR(80),
 		field_3 VARCHAR(80),
 		field_4 VARCHAR(80),
-		FULLTEXT KEY a_search(field_1, field_2, field_3, field_4)
+		FULLTEXT INDEX a_search(field_1, field_2, field_3, field_4)
 	);
 
 	SELECT * FROM table
 		WHERE MATCH(field_1, field_2, field_3, field_4)
 		AGAINST('a_search' IN BOOLEAN MODE);
-
-	SELECT t1.field_1, t1.field_2, t2.field_1, t2.field_4
-		FROM table_1 AS t1
-		INNER JOIN table_2 AS t2
-		ON t1.field_1 = t2.field_4
-		WHERE MATCH(t1.field_1, t1.field_2, t2.field_1, t2.field_4)
-		AGAINST('a_search' IN BOOLEAN MODE);
 	```
-* [Función REPLACE (INSERT + UPDATE)](http://dev.mysql.com/doc/refman/5.7/en/replace.html)
+* **[Función REPLACE](http://dev.mysql.com/doc/refman/5.7/en/replace.html):** INSERT + ¿ UPDATE ?
+	* Si el valor del campo clave y/o único  del registro a insertar existe, REPLACE lo elimina y agrega el nuevo registro (ejecuta 2 consultas: 1 DELETE y 1 INSERT)
+	* Si el valor del campo clave y/o único  del registro a insertar NO existe, REPLACE agrega el nuevo registro (ejecuta 1 consulta: 1 INSERT)
+	```SQL
+	REPLACE INTO table (field_1, field_2, ..., field_n)
+		VALUES (value_1, value2, ..., value_n);
+
+	REPLACE INTO table
+		SET field_1 = 'value_1', field_2 = 'value_2', ..., field_n = value_n;
+	```
 * **[TRANSACCIONES SQL](https://styde.net/transacciones-de-bases-de-datos-mysql-en-php/):** Cuando varias sentencias se tienen que ejecutar al mismo tiempo como si fueran una sola, en caso de que exista un error los cambios efectuados en la base de datos se cancelan
 	```SQL
 	START TRANSACTION;
@@ -539,33 +541,41 @@ DELETE FROM table WHERE field = value;
 	```
 * **CONSULTAS MÚLTIPLES:** Datos de 2 o más tablas
 	```SQL
-	SELECT * FROM table_1 AS t1 
+	SELECT * FROM table_1 AS t1
 		INNER JOIN table_2 AS t2;
 
-	SELECT * FROM table_1 AS t1 
+	SELECT * FROM table_1 AS t1
 		INNER JOIN table_2 AS t2
 		ON t1.a_field = t2.a_field;
 
 	SELECT t1.field_1, t1.field_2, t1.field_3, t2.field_1, t2.field_5
-		FROM table_1 AS t1 
+		FROM table_1 AS t1
 		INNER JOIN table_2 AS t2
 		ON t1.field_1 = t2.field_5
 		WHERE t1.field_1 = 'a_value'
 		ORDER BY t1.field_3 DESC;
+
+	/* Con FULLTEXT */
+	SELECT t1.field_1, t1.field_2, t2.field_1, t2.field_4
+		FROM table_1 AS t1
+		INNER JOIN table_2 AS t2
+		ON t1.field_1 = t2.field_4
+		WHERE MATCH(t1.field_1, t1.field_2, t2.field_1, t2.field_4)
+		AGAINST('a_search' IN BOOLEAN MODE);
 	```
 	* [Definición de Join](https://es.wikipedia.org/wiki/Join)
 	* [Tipos de Joins](http://www.nebaris.com/post/77/tipos-de-join-en-sql)
 	* [Joins de Manera Gráfica](http://www.genbetadev.com/bases-de-datos/explicacion-grafica-de-los-join-en-sql-y-sus-resultados)
 * **SUBCONSULTAS:** Una consulta dentro de otra
 	```SQL
-	SELECT t1.field_1, t1.field_2, ( 
+	SELECT t1.field_1, t1.field_2, (
 			SELECT COUNT(*)
 			FROM table_2 AS t2
 			WHERE t2.field_1 = t1.field_1
 		) AS subquery_field
 		FROM table_1 AS t1;
 
-	SELECT t1.field_1, t1.field_2, t1.field_3, ( 
+	SELECT t1.field_1, t1.field_2, t1.field_3, (
 			SELECT field_1
 			FROM table_2 AS t2
 			WHERE t2.field_1 = t1.field_1
