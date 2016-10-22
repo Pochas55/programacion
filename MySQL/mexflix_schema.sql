@@ -338,3 +338,18 @@ CREATE TABLE users(
 INSERT INTO users (user, email, name, birthday, pass, role) VALUES
 	('@jonmircha', 'jonmircha@gmail.com', 'Jonathan MirCha', '1984-05-23', MD5('los perros rifan'), 'Admin'),
 	('@user', 'usuario@loquesea.com', 'Usuario Normal', '2000-12-19', MD5('usuario sin privilegios'), 'User');
+
+DROP PROCEDURE IF EXISTS delete_movie;
+
+DELIMITER $$
+CREATE PROCEDURE delete_movie(
+	IN _imdb_id CHAR(9)
+)
+BEGIN
+	START TRANSACTION;
+		DELETE FROM genres_x_movie WHERE movie = _imdb_id;
+		DELETE FROM countries_x_movie WHERE movie = _imdb_id;
+		DELETE FROM movies WHERE imdb_id = _imdb_id;
+	COMMIT;
+END $$
+DELIMITER ;

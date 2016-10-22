@@ -218,6 +218,8 @@
 		DELETE FROM movies WHERE imdb_id = 'tt0479143';
 	COMMIT; /* ROLLBACK; */
 
+	CALL delete_movie('tt0479143');
+
 /* genres */
 	/* create a genre */
 	INSERT INTO genres (genre_name) VALUES ('Agenre');
