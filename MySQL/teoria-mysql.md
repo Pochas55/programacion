@@ -583,5 +583,29 @@ DELETE FROM table WHERE field = value;
 	```
 * [Función GROUP_CONCAT](http://otroblogmas.com/funcion-group_concat-de-mysql/)
 * [Procedimientos Almacenados](https://www.codejobs.biz/es/blog/2014/07/09/como-hacer-un-procedimiento-almacenado-en-mysql-sin-morir-en-el-intento)
+	```SQL
+	DROP PROCEDURE IF EXISTS a_procedure;
+
+	DELIMITER $$
+
+	CREATE PROCEDURE a_procedure(
+		IN _data_1 CHAR(9),
+		IN _data_2 INT
+	)
+
+	BEGIN
+		
+		START TRANSACTION;
+
+			DELETE FROM a_table_1 WHERE a_field = _data_1;
+			
+			DELETE FROM a_table_2 WHERE a_field = _data_2;
+		
+		COMMIT;
+	
+	END $$
+
+	DELIMITER ;
+	```
 
 **[⬆ regresar al índice](#Índice)**
