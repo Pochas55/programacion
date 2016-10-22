@@ -564,7 +564,6 @@ DELETE FROM table WHERE field = value;
 		AGAINST('a_search' IN BOOLEAN MODE);
 	```
 	* [Definición de Join](https://es.wikipedia.org/wiki/Join)
-	* [Tipos de Joins](http://www.nebaris.com/post/77/tipos-de-join-en-sql)
 	* [Joins de Manera Gráfica](http://www.genbetadev.com/bases-de-datos/explicacion-grafica-de-los-join-en-sql-y-sus-resultados)
 * **SUBCONSULTAS:** Una consulta dentro de otra
 	```SQL

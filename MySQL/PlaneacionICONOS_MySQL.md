@@ -118,5 +118,5 @@ Al finalizar el curso el estudiante utilizará el lenguaje de programación PHP 
 
 
 ## :date: Entrega:
-**Jueves 31 Octubre 2016 11:59:59pm**
+**Lunes 31 Octubre 2016 11:59:59pm**
 La entrega puede ser vía email, dropbox, google drive, zip en cualquier medio de transferencia de archivos al correo jonmircha@gmail.com

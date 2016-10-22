@@ -18,7 +18,7 @@ USE mexflix32;
 
 CREATE TABLE countries(
 	country_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-	country_name VARCHAR(50) NOT NULL 
+	country_name VARCHAR(50) NOT NULL
 );
 
 INSERT INTO countries (country_id, country_name) VALUES
@@ -274,7 +274,7 @@ CREATE TABLE movies(
 	rating DECIMAL(2,1) UNSIGNED DEFAULT 0,
 	category ENUM('Movie', 'Serie') NOT NULL,
 	state INTEGER UNSIGNED NOT NULL,
-	FULLTEXT KEY search(title, author, actors),
+	FULLTEXT INDEX search(title, author, actors),
 	FOREIGN KEY(state)
 		REFERENCES status(state_id)
 		ON DELETE RESTRICT
@@ -289,9 +289,9 @@ CREATE TABLE countries_x_movie(
 	cxm_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	movie CHAR(9) NOT NULL,
 	country INTEGER UNSIGNED NOT NULL,
-	FOREIGN KEY(movie) 
-		REFERENCES movies(imdb_id) 
-		ON DELETE RESTRICT 
+	FOREIGN KEY(movie)
+		REFERENCES movies(imdb_id)
+		ON DELETE RESTRICT
 		ON UPDATE CASCADE,
 	FOREIGN KEY(country)
 		REFERENCES countries(country_id)
@@ -308,9 +308,9 @@ CREATE TABLE genres_x_movie(
 	gxm_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 	movie CHAR(9) NOT NULL,
 	genre INTEGER UNSIGNED NOT NULL,
-	FOREIGN KEY(movie) 
-		REFERENCES movies(imdb_id) 
-		ON DELETE RESTRICT 
+	FOREIGN KEY(movie)
+		REFERENCES movies(imdb_id)
+		ON DELETE RESTRICT
 		ON UPDATE CASCADE,
 	FOREIGN KEY(genre)
 		REFERENCES genres(genre_id)
