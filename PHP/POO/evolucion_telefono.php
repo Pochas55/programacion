@@ -29,9 +29,38 @@ class Telefono {
 //HERENCIA: Los objetos pueden heredar propiedades y métodos de otros, mediante la extensión (herencia) de clases, cuya característica representa la relación existente entre diferentes objetos. Para definir una clase como extención de otra se utiliza la palabra clave extends
 
 class Celular extends Telefono {
+	protected $medio = 'inalámbrico';
+	protected $transmision = 'digital';
 
+	public function __construct($marca, $modelo) {
+		parent::__construct($marca, $modelo);
+	}
+
+	public function vibrar() {
+		echo '<p>BRRR BRRR!!!</p>';
+	}
 }
 
+class SmartPhone extends Celular {
+	public $datos = 'Tengo Internet';
+
+	public function __construct($marca, $modelo) {
+		parent::__construct($marca, $modelo);
+	}
+
+	//POLIMORFISMO: Es la capacidad que da a diferentes objetos, la posibilidad de contar con métodos y atributos de igual nombre, sin que los de un objeto interfieran con el de otro
+	public function imprime_info() {
+		echo '
+			<ul>
+				<li>' . $this->marca . '</li>
+				<li>' . $this->modelo . '</li>
+				<li>' . $this->medio . '</li>
+				<li>' . $this->transmision . '</li>
+				<li>' . $this->datos . '</li>
+			</ul>
+		';
+	}
+}
 
 echo '<h2>Tipos de Clases en PHP</h2>';
 /*
@@ -55,3 +84,10 @@ echo '<h2>Teléfono:</h2>';
 $tel_casa = new Telefono('Panasonic', 'KX-TS550');
 $tel_casa->llamar();
 $tel_casa->imprime_info();
+
+
+echo '<h2>Celular:</h2>';
+$mi_cel = new Celular('Nokia', '5120');
+$mi_cel->llamar();
+$mi_cel->vibrar();
+$mi_cel->imprime_info();
