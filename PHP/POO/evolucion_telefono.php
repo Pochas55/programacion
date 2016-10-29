@@ -41,7 +41,7 @@ class Celular extends Telefono {
 	}
 }
 
-class SmartPhone extends Celular {
+final class SmartPhone extends Celular {
 	public $datos = 'Tengo Internet';
 
 	public function __construct($marca, $modelo) {
@@ -61,6 +61,8 @@ class SmartPhone extends Celular {
 		';
 	}
 }
+
+// class FutureSmartPhone extends SmartPhone { }
 
 echo '<h2>Tipos de Clases en PHP</h2>';
 /*
@@ -91,3 +93,10 @@ $mi_cel = new Celular('Nokia', '5120');
 $mi_cel->llamar();
 $mi_cel->vibrar();
 $mi_cel->imprime_info();
+
+
+echo '<h2>SmartPhone:</h2>';
+$mi_sp = new SmartPhone('Motorola', 'G4');
+$mi_sp->llamar();
+$mi_sp->vibrar();
+$mi_sp->imprime_info();
