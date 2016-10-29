@@ -9,4 +9,12 @@ abstract class PoligonoRegular {
 
 		NO existen atributos abstractos
 	*/
+
+	//ATRIBUTOS
+	protected static $lados;
+
+	//MÉTODOS
+	abstract protected function perimetro();
+
+	abstract protected function area();
 }

@@ -21,3 +21,23 @@ echo '
 	<p>El área de un polígono es la medida de la región o superficie encerrada por un polígono.</p>
 	<hr>
 ';
+
+
+echo '<h2>Cuadrado</h2>';
+$cuadrado = new Cuadrado(5);
+echo '<p>
+		El perímetro de mi cuadrado es : '
+		. $cuadrado->perimetro() .
+		' El área es: '
+		. $cuadrado->area() .
+	'</p>';
+
+
+	echo '<h2>Hexágono</h2>';
+	$hexagono = new Hexagono(3, 9);
+	echo '<p>
+			El perímetro de mi hexagono es : '
+			. $hexagono->perimetro() .
+			' El área es: '
+			. $hexagono->area() .
+		'</p>';
