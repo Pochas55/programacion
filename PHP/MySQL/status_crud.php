@@ -20,7 +20,7 @@ $update_status = array(
 	'state_id' => 6,
 	'state_name' => 'Other status by PHP'
 );
-$status->update($update_status);
+//$status->update($update_status);
 
 /* **************************************************** */
 
