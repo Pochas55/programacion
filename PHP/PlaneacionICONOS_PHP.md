@@ -69,24 +69,27 @@ Al finalizar el curso el estudiante utilizará el lenguaje de programación PHP 
 
 ### :clipboard: Temas y conceptos revisados: 
 
-* [Patrón de Arquitectura de Software: Modelo Vista Controlador](http://jonmircha.github.io/slides-poo-php-mysql/#/71)
-* Estructura de Proyecto con filosofía MVC
-* Archivos `.htaccess`
-* Conexión a MySQL con POO y PHP
+* Conexión a MySQL con PHP
 	* [Clase MySQLi de PHP](http://php.net/manual/es/class.mysqli.php)
-	* Modelo Abstracto
-* Clases PHP del Modelo
-
+	* Conexión estructurada
+	* Conexión orientada a objetos
+* Clases PHP de las Tablas del Proyecto
+	* Modelo Abstracto para conectarse a MySQL
+	* Modelo de Tablas
+	* CRUD con PHP
 
 ### :pencil: Actividades para la siguiente sesión: 
 
-* Realizar una clase por cada tabla del modelo de la aplicación a desarrollar
+* Realizar una clase por cada tabla del proyecto de la aplicación a desarrollar
 
 
 ## :school: Sesión 3: 12 Noviembre 2016
 
 ### :clipboard: Temas y conceptos revisados: 
 
+* [Patrón de Arquitectura de Software: Modelo Vista Controlador](http://jonmircha.github.io/slides-poo-php-mysql/#/71)
+* Estructura de Proyecto con filosofía MVC
+* Archivos `.htaccess`
 * Clases PHP del Controlador
 	* Autocargas de Clases
 	* Controlador de Rutas

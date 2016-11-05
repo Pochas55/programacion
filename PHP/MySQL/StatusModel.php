@@ -11,7 +11,17 @@ final class StatusModel extends Model {
 
 	}
 
-	public function create( $data = array() ) {}
+	public function create( $data = array() ) {
+		foreach ( $data as $key => $value ) {
+			//Variables Variables
+			//http://php.net/manual/es/language.variables.variable.php
+			$$key = $value;
+		}
+
+		$this->sql = "INSERT INTO status SET state_id = $state_id, state_name = '$state_name'";
+
+		$this->set_query();
+	}
 
 	public function read( $id = '' ) {
 		$this->sql = ( $id != '' )
@@ -29,9 +39,20 @@ final class StatusModel extends Model {
 		return $data;
 	}
 
-	public function update( $data = array() ) {}
+	public function update( $data = array() ) {
+		foreach ( $data as $key => $value ) {
+			$$key = $value;
+		}
 
-	public function delete( $id = '' ) {}
+		$this->sql = "UPDATE status SET state_name = '$state_name' WHERE state_id = $state_id";
+
+		$this->set_query();
+	}
+
+	public function delete( $id = '' ) {
+		$this->sql = "DELETE FROM status WHERE state_id = $id";
+		$this->set_query();
+	}
 
 	public function __destruct() {
 		unset($this);
