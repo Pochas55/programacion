@@ -9,6 +9,7 @@ abstract class Model {
 	private static $db_charset = 'utf8';
 	private $mysql;
 	protected $sql;
+	protected $sql_transaction = array();
 	protected $rows = array();
 	private $result;
 
@@ -39,7 +40,7 @@ abstract class Model {
 				$this->mysql->set_charset( self::$db_charset );
 			}
 		} catch (Exception $e) {
-			print '<h3>Error en la conexión a MySQL</h3><ul>' . $e->getMessage() . '</ul>';
+			print '<h3>Error en la conexión a MySQL:</h3><ul>' . $e->getMessage() . '</ul>';
 			die();
 		}
 	}
@@ -52,18 +53,58 @@ abstract class Model {
 	//establecer un query que afecte datos (INSERT, DELETE o UPDATE)
 	protected function set_query() {
 		$this->db_open();
-		$this->mysql->query( $this->sql );
+		try {
+			if ( !$this->mysql->query( $this->sql ) ) {
+				throw new Exception(
+					'<li>Error N°: <mark>' . $this->mysql->errno . '</mark></li>' .
+					'<li>Mensaje del Error: <mark>' . $this->mysql->error . '</mark></li>' .
+					'<li>Consulta SQL: <mark>' . $this->sql . '</mark></li>'
+				);
+			}
+		} catch (Exception $e) {
+			print '<h3>Error en la Sentencia SQL:</h3><ul>' . $e->getMessage() . '</ul>';
+			die();
+		}
 		$this->db_close();
 	}
 
-	protected function set_trasaction() {
-
+	protected function set_transaction() {
+		$this->db_open();
+		$this->mysql->autocommit(false);
+		try {
+			for ($n=0; $n < count($this->sql_transaction); $n++) { 
+				if ( !$this->mysql->query( $this->sql_transaction[$n] ) ) {
+					throw new Exception(
+						'<li>Error N°: <mark>' . $this->mysql->errno . '</mark></li>' .
+						'<li>Mensaje del Error: <mark>' . $this->mysql->error . '</mark></li>' .
+						'<li>Consulta SQL: <mark>' . $this->sql_transaction[$n] . '</mark></li>'
+					);
+				}
+			 } 
+		} catch (Exception $e) {
+			$this->mysql->rollback();
+			print '<h3>Error en la Sentencia SQL:</h3><ul>' . $e->getMessage() . '</ul>';
+			die();
+		}
+		$this->mysql->commit();
+		$this->db_close();
 	}
 
 	//obtener datos de un query (SELECT)
 	protected function get_query() {
 		$this->db_open();
-		$this->result = $this->mysql->query( $this->sql );
+		try {
+			if ( !$this->result = $this->mysql->query( $this->sql ) ) {
+				throw new Exception(
+					'<li>Error N°: <mark>' . $this->mysql->errno . '</mark></li>' .
+					'<li>Mensaje del Error: <mark>' . $this->mysql->error . '</mark></li>' .
+					'<li>Consulta SQL: <mark>' . $this->sql . '</mark></li>'
+				);
+			}
+		} catch (Exception $e) {
+			print '<h3>Error en la Sentencia SQL:</h3><ul>' . $e->getMessage() . '</ul>';
+			die();
+		}
 		while ( $this->rows[] = $this->result->fetch_assoc() );
 		$this->result->free();
 		$this->db_close();
