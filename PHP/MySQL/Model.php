@@ -7,7 +7,7 @@ abstract class Model {
 	private static $db_pass = '';
 	private static $db_name = 'mexflix32';
 	private static $db_charset = 'utf8';
-	private $conn;
+	private $mysql;
 	protected $sql;
 	protected $rows = array();
 	private $result;
@@ -22,32 +22,48 @@ abstract class Model {
 	//método privado para conectarse a la base de datos
 	private function db_open() {
 		//http://php.net/manual/es/book.mysqli.php
-		$this->conn = new mysqli(
+		$this->mysql = new mysqli(
 			self::$db_host,
 			self::$db_user,
 			self::$db_pass,
 			self::$db_name
 		);
 
-		$this->conn->set_charset( self::$db_charset );
+		try {
+			if ( $this->mysql->connect_errno ) {
+				throw new Exception(
+					'<li>Error N°: <mark>' . $this->mysql->connect_errno . '</mark></li>' .
+					'<li>Mensaje del Error: <mark>' . $this->mysql->connect_error . '</mark></li>'
+				);
+			} else {
+				$this->mysql->set_charset( self::$db_charset );
+			}
+		} catch (Exception $e) {
+			print '<h3>Error en la conexión a MySQL</h3><ul>' . $e->getMessage() . '</ul>';
+			die();
+		}
 	}
 
 	//método privado para desconectarse de la base de datos
 	private function db_close() {
-		$this->conn->close();
+		$this->mysql->close();
 	}
 
 	//establecer un query que afecte datos (INSERT, DELETE o UPDATE)
 	protected function set_query() {
 		$this->db_open();
-		$this->conn->query( $this->sql );
+		$this->mysql->query( $this->sql );
 		$this->db_close();
+	}
+
+	protected function set_trasaction() {
+
 	}
 
 	//obtener datos de un query (SELECT)
 	protected function get_query() {
 		$this->db_open();
-		$this->result = $this->conn->query( $this->sql );
+		$this->result = $this->mysql->query( $this->sql );
 		while ( $this->rows[] = $this->result->fetch_assoc() );
 		$this->result->free();
 		$this->db_close();
