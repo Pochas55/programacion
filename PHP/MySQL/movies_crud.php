@@ -38,8 +38,21 @@ $movies->create($new_movies);
 
 echo '<h2>Actualizando movies</h2>';
 $update_movies = array(
-	'state_id' => 6,
-	'state_name' => 'Other movies by PHP'
+	array(
+		'imdb_id' => 'tt0479143',
+		'title' => 'Rocky Balboa',
+		'plot' => 'Thirty years after the ring of the first bell, Rocky Balboa comes out of retirement and dons his gloves for his final fight; against the reigning heavyweight champ Mason \'The Line\' Dixon.',
+		'author' => 'Sylvester Stallone',
+		'actors' => 'Sylvester Stallone, Burt Young, Antonio Tarver, Geraldine Hughes',
+		'premiere' => '2006',
+		'poster' => 'http://ia.media-imdb.com/images/M/MV5BMTM2OTUzNDE3NV5BMl5BanBnXkFtZTcwODczMzkzMQ@@._V1_SX300.jpg',
+		'trailer' => 'https://www.youtube.com/watch?v=8tab8fK2_3w',
+		'rating' => 7.2,
+		'category' => 'Movie',
+		'state' => 2
+	),
+	array(8, 22), //géneros
+	array(60) //países
 );
 //$movies->update($update_movies);
 
