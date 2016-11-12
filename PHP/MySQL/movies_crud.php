@@ -32,7 +32,7 @@ var_dump($new_movies[1]);
 echo '<br><br>';
 var_dump($new_movies[1][1]);
 echo '<br><br>';
-$movies->create($new_movies);
+//$movies->create($new_movies);
 
 /* **************************************************** */
 
@@ -54,7 +54,7 @@ $update_movies = array(
 	array(8, 22), //géneros
 	array(60) //países
 );
-//$movies->update($update_movies);
+$movies->update($update_movies);
 
 /* **************************************************** */
 

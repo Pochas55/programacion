@@ -44,7 +44,7 @@ final class MoviesModel extends Model {
 
 		$this->sql_transaction[2] = trim( $this->sql_transaction[2], ',' );
 
-		var_dump($this->sql_transaction);
+		//var_dump($this->sql_transaction);
 
 		$this->set_transaction();
 	}
@@ -95,13 +95,35 @@ final class MoviesModel extends Model {
 	}
 
 	public function update( $data = array() ) {
-		foreach ( $data as $key => $value ) {
+		foreach ( $data[0] as $key => $value ) {
 			$$key = $value;
 		}
 
-		$this->sql = "UPDATE status SET state_name = '$state_name' WHERE state_id = $state_id";
+		$this->sql_transaction[0] = "UPDATE movies SET title = '$title', plot = '$plot', author = '$author', actors = '$actors', premiere = '$premiere', poster = '$poster', trailer = '$trailer', rating = $rating, category = '$category', state = $state WHERE imdb_id = '$imdb_id'";
 
-		$this->set_query();
+		$this->sql_transaction[1] = "DELETE FROM genres_x_movie WHERE movie = '$imdb_id'";
+
+		$this->sql_transaction[2] = "INSERT INTO genres_x_movie (movie, genre) VALUES ";
+
+		for ($n=0; $n < count($data[1]); $n++) { 
+			$this->sql_transaction[2] .= "('$imdb_id', " . $data[1][$n] . "),";
+		}
+
+		$this->sql_transaction[2] = trim( $this->sql_transaction[2], ',' );
+
+		$this->sql_transaction[3] = "DELETE FROM countries_x_movie WHERE movie = '$imdb_id'";
+
+		$this->sql_transaction[4] = "INSERT INTO countries_x_movie (movie, country) VALUES ";
+
+		for ($n=0; $n < count($data[2]); $n++) { 
+			$this->sql_transaction[4] .= "('$imdb_id', " . $data[2][$n] . "),";
+		}
+
+		$this->sql_transaction[4] = trim( $this->sql_transaction[4], ',' );
+
+		var_dump($this->sql_transaction);
+
+		//$this->set_transaction();
 	}
 
 	public function delete( $id = '' ) {
