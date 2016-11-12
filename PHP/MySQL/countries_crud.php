@@ -18,7 +18,7 @@ $new_countries = array(
 echo '<h2>Actualizando countries</h2>';
 $update_countries = array(
 	'country_id' => 195,
-	'country_name' => 'Republica de Moldovia'
+	'country_name' => 'República de Moldovia'
 );
 //$countries->update($update_countries);
 
@@ -30,7 +30,7 @@ echo '<h2>Eliminando countries</h2>';
 /* **************************************************** */
 
 $countries_data = $countries->read();
-var_dump($countries_data);
+//var_dump($countries_data);
 
 $num_countries = count($countries_data);
 

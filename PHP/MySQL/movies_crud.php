@@ -22,16 +22,21 @@ $new_movies = array(
 		'state' => 2
 	),
 	array(8, 22), //géneros
-	array(60) //paises
+	array(60) //países
 );
+
 var_dump($new_movies);
-echo '<br><br>';
+echo '<br>';
 var_dump($new_movies[0]);
-echo '<br><br>';
+echo '<br>';
 var_dump($new_movies[1]);
-echo '<br><br>';
+echo '<br>';
+var_dump($new_movies[1][0]);
+echo '<br>';
 var_dump($new_movies[1][1]);
-echo '<br><br>';
+echo '<br>';
+var_dump($new_movies[2]);
+
 //$movies->create($new_movies);
 
 /* **************************************************** */
@@ -54,12 +59,12 @@ $update_movies = array(
 	array(8, 22), //géneros
 	array(60) //países
 );
-$movies->update($update_movies);
+//$movies->update($update_movies);
 
 /* **************************************************** */
 
 echo '<h2>Eliminando movies</h2>';
-//$movies->delete(6);
+//$movies->delete('tt0479143');
 
 /* **************************************************** */
 

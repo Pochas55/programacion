@@ -1,24 +1,24 @@
 <?php
 require_once('./Model.php');
 
-final class CountriesModel extends Model {
-	public $country_id;
-	public $country_name;
+final class GenresModel extends Model {
+	public $genre_id;
+	public $genre_name;
 
 	public function create( $data = array() ) {
 		foreach ( $data as $key => $value ) {
 			$$key = htmlentities($value, ENT_QUOTES);
 		}
 
-		$this->sql = "INSERT INTO countries SET country_id = $country_id, country_name = '$country_name'";
+		$this->sql = "INSERT INTO genres SET genre_id = $genre_id, genre_name = '$genre_name'";
 
 		$this->set_query();
 	}
 
 	public function read( $id = '' ) {
 		$this->sql = ( $id != '' )
-			? "SELECT * FROM countries WHERE country_id = $id"
-			: "SELECT * FROM countries";
+			? "SELECT * FROM genres WHERE genre_id = $id"
+			: "SELECT * FROM genres";
 
 		$this->get_query();
 
@@ -36,13 +36,13 @@ final class CountriesModel extends Model {
 			$$key = htmlentities($value, ENT_QUOTES);
 		}
 
-		$this->sql = "UPDATE countries SET country_name = '$country_name' WHERE country_id = $country_id";
+		$this->sql = "UPDATE genres SET genre_name = '$genre_name' WHERE genre_id = $genre_id";
 
 		$this->set_query();
 	}
 
 	public function delete( $id = '' ) {
-		$this->sql = "DELETE FROM countries WHERE country_id = $id";
+		$this->sql = "DELETE FROM genres WHERE genre_id = $id";
 		$this->set_query();
 	}
 
