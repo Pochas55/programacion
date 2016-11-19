@@ -37,7 +37,7 @@ var_dump($new_movies[1][1]);
 echo '<br>';
 var_dump($new_movies[2]);
 
-//$movies->set($new_movies);
+$movies->set($new_movies);
 
 /* **************************************************** */
 
@@ -59,7 +59,7 @@ $update_movies = array(
 	array(8, 22), //géneros
 	array(60) //países
 );
-$movies->set($update_movies);
+//$movies->set($update_movies);
 
 /* **************************************************** */
 

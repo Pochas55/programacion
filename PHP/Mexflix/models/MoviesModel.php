@@ -1,6 +1,4 @@
 <?php
-require_once('./models/Model.php');
-
 final class MoviesModel extends Model {
 	public $imdb_id;
 	public $title;
@@ -19,29 +17,28 @@ final class MoviesModel extends Model {
 			$$key = htmlentities($value, ENT_QUOTES);
 		}
 
-		$this->sql_transaction[0] = "CALL delete_movie('$id')";
+		$this->del($imdb_id);
 
-		$this->sql_transaction[1] = "INSERT INTO movies (imdb_id, title, plot, author, actors, premiere, poster, trailer, rating, category, state) VALUES
+		$this->sql_transaction[0] = "INSERT INTO movies (imdb_id, title, plot, author, actors, premiere, poster, trailer, rating, category, state) VALUES
 			('$imdb_id', '$title', '$plot', '$author', '$actors', '$premiere', '$poster', '$trailer', $rating, '$category', $state)";
 
-
-		$this->sql_transaction[2] = "INSERT INTO genres_x_movie (movie, genre) VALUES ";
+		$this->sql_transaction[1] = "INSERT INTO genres_x_movie (movie, genre) VALUES ";
 
 		for ($n=0; $n < count($data[1]); $n++) { 
-			$this->sql_transaction[2] .= "('$imdb_id', " . $data[1][$n] . "),";
+			$this->sql_transaction[1] .= "('$imdb_id', " . $data[1][$n] . "),";
+		}
+
+		$this->sql_transaction[1] = trim($this->sql_transaction[1], ',');
+
+		$this->sql_transaction[2] = "INSERT INTO countries_x_movie (movie, country) VALUES ";
+
+		for ($n=0; $n < count($data[2]); $n++) { 
+			$this->sql_transaction[2] .= "('$imdb_id', " . $data[2][$n] . "),";
 		}
 
 		$this->sql_transaction[2] = trim($this->sql_transaction[2], ',');
 
-		$this->sql_transaction[3] = "INSERT INTO countries_x_movie (movie, country) VALUES ";
-
-		for ($n=0; $n < count($data[2]); $n++) { 
-			$this->sql_transaction[3] .= "('$imdb_id', " . $data[2][$n] . "),";
-		}
-
-		$this->sql_transaction[3] = trim($this->sql_transaction[3], ',');
-
-		var_dump($this->sql_transaction);
+		//var_dump($this->sql_transaction);
 
 		$this->set_transaction();
 	}

@@ -1,6 +1,4 @@
 <?php
-require_once('./models/Model.php');
-
 final class CountriesModel extends Model {
 	public $country_id;
 	public $country_name;

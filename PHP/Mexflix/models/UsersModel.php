@@ -1,6 +1,4 @@
 <?php
-require_once('./Model.php');
-
 final class UsersModel extends Model {
 	public $user;
 	public $email;

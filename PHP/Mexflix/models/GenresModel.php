@@ -1,6 +1,4 @@
 <?php
-require_once('./Model.php');
-
 final class GenresModel extends Model {
 	public $genre_id;
 	public $genre_name;
