@@ -14,67 +14,69 @@ html {
 	padding: 0;
 }
 
-.HeaderApp {
+.App-header {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 }
 
-.HeaderApp > * {
+.App-header > * {
 	flex: flex-none;
 	width: 100%;
 	text-align: center;
 }
 
-.LogoApp {
+.App-logo {
 	font-size: 3rem;
 	color: #E50914;
 }
 
-.MenuApp-item {
+.App-menuItem {
 	display: inline;
-	padding: 1rem;
+	padding: 1rem .5rem;
 	line-height: 3.5rem;
 }
 
-.MenuApp-link {
+.App-menuLink {
 	font-size: 1.5rem;
 	text-decoration: none;
 	color: #E50914;
 	transition: all .3s ease-out;
 }
 
-.MenuApp-link:hover { color: #FFF; }
+.App-menuLink:hover { color: #FFF; }
 
-.FormApp {
+.App-form {
 	margin: auto;
 	width: 80%;
 	text-align: center;
 }
 
-.FormApp input,
-.FormApp textarea,
-.FormApp select {
+.App-form input,
+.App-form textarea,
+.App-form select {
 	display: block;
 	margin: 1rem auto;
 	padding: .5rem;
 	outline: 0;
 	border: 0;
 	font-size: 1rem;
-	color: #141414;
 }
 
 .u-button {
 	padding: .5rem 1rem;
 	background-color: #E50914;
-	color: #FFF !important;
+	color: #FFF;
 	font-weight: bold;
 	cursor: pointer;
 	transition: all .3s ease-out;
 }
 
-.u-button:hover { opacity: .75; }
+.u-button:hover { 
+	opacity: .75;
+	box-shadow: .1rem .1rem .5rem rgba(255, 255, 255, .5);
+}
 
 .u-error {
 	background-color: #E50914;
@@ -82,7 +84,9 @@ html {
 }
 
 @media screen and (min-width: 64em) {
-	.LogoApp { width: 20%; }
+	.App-logo { width: 20%; }
 
-	.MenuApp { width: 80%; }
+	.App-menu { width: 80%; }
+
+	.App-menuItem { padding: 1rem; }
 }

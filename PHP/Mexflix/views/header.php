@@ -12,34 +12,34 @@ print('
 	</head>
 	<body>
 		<!-- https://suitcss.github.io/ -->
-		<header class="HeaderApp">
-			<h1 class="LogoApp">Mexflix</h1>
+		<header class="App-header">
+			<h1 class="App-logo">Mexflix</h1>
 ');
 
 if ( $_SESSION['ok'] ) {
 	print('
-			<nav class="MenuApp">
-				<ul class="MenuApp-listItem">
-					<li class="MenuApp-item">
-						<a href="./" class="MenuApp-link">Inicio</a>
+			<nav class="App-menu">
+				<ul class="App-menuListItem">
+					<li class="App-menuItem">
+						<a href="./" class="App-menuLink">Inicio</a>
 					</li>
-					<li class="MenuApp-item">
-						<a href="movies" class="MenuApp-link">Películas</a>
+					<li class="App-menuItem">
+						<a href="movies" class="App-menuLink">Películas</a>
 					</li>
-					<li class="MenuApp-item">
-						<a href="status" class="MenuApp-link">Status</a>
+					<li class="App-menuItem">
+						<a href="status" class="App-menuLink">Status</a>
 					</li>
-					<li class="MenuApp-item">
-						<a href="genres" class="MenuApp-link">Géneros</a>
+					<li class="App-menuItem">
+						<a href="genres" class="App-menuLink">Géneros</a>
 					</li>
-					<li class="MenuApp-item">
-						<a href="countries" class="MenuApp-link">Países</a>
+					<li class="App-menuItem">
+						<a href="countries" class="App-menuLink">Países</a>
 					</li>
-					<li class="MenuApp-item">
-						<a href="users" class="MenuApp-link">Usuarios</a>
+					<li class="App-menuItem">
+						<a href="users" class="App-menuLink">Usuarios</a>
 					</li>
-					<li class="MenuApp-item">
-						<a href="logout" class="MenuApp-link">Salir</a>
+					<li class="App-menuItem">
+						<a href="logout" class="App-menuLink">Salir</a>
 					</li>
 				</ul>
 			</nav>
@@ -48,5 +48,5 @@ if ( $_SESSION['ok'] ) {
 
 print('
 		</header>
-		<main class="MainApp">
+		<main class="App-mainContent">
 ');
