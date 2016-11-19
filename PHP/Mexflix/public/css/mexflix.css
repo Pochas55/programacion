@@ -1,0 +1,83 @@
+html {
+	box-sizing: border-box;
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #FFF;
+	background-color: #141414;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+.HeaderApp {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.HeaderApp > * {
+	flex: flex-none;
+	width: 100%;
+	text-align: center;
+}
+
+.LogoApp {
+	font-size: 3rem;
+	color: #E50914;
+}
+
+.MenuApp-item {
+	display: inline;
+	padding: 1rem;
+	line-height: 3.5rem;
+}
+
+.MenuApp-link {
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: #E50914;
+	transition: all .3s ease-out;
+}
+
+.MenuApp-link:hover { color: #FFF; }
+
+.FormApp {
+	margin: auto;
+	width: 80%;
+	text-align: center;
+}
+
+.FormApp input,
+.FormApp textarea,
+.FormApp select {
+	display: block;
+	margin: 1rem auto;
+	padding: .5rem;
+	outline: 0;
+	border: 0;
+	font-size: 1rem;
+	color: #141414;
+}
+
+.u-button {
+	padding: .5rem 1rem;
+	background-color: #E50914;
+	color: #FFF !important;
+	font-weight: bold;
+	cursor: pointer;
+	transition: all .3s ease-out;
+}
+
+.u-button:hover { opacity: .75; }
+
+@media screen and (min-width: 64em) {
+	.LogoApp { width: 20%; }
+
+	.MenuApp { width: 80%; }
+}
