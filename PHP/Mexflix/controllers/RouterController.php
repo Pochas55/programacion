@@ -8,7 +8,7 @@ final class RouterController {
 		require_once('./controllers/AutoloadController.php');
 		new AutoloadController();
 
-		//defino el valor de la variable que controla las rutas de mi aplicacion e inicializo la variable que invocará vistas
+		//defino y asigno la variable que controla las rutas de la aplicacion y la variable que invoca las vistas html
 		$this->route = isset( $_GET['r'] ) ? $_GET['r'] : 'home';
 		$this->page = new ViewController();
 
@@ -49,6 +49,8 @@ final class RouterController {
 			$_SESSION['pass'] = $data[0]['pass'];
 			$_SESSION['role'] = $data[0]['role'];
 		}
+
+		header('Location: ./');
 	}
 
 	private function app_routes() {
