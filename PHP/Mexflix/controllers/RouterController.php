@@ -48,9 +48,9 @@ final class RouterController {
 			$_SESSION['birthday'] = $data[0]['birthday'];
 			$_SESSION['pass'] = $data[0]['pass'];
 			$_SESSION['role'] = $data[0]['role'];
-		}
 
-		header('Location: ./');
+			header('Location: ./');
+		}
 	}
 
 	private function app_routes() {
