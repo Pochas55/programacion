@@ -58,6 +58,20 @@ final class UsersModel extends Model {
 		$this->set_query();
 	}
 
+	public function login( $user, $pass ) {
+		$this->sql = "SELECT * FROM users WHERE user = '$user' AND pass = MD5('$pass')";
+
+		$this->get_query();
+
+		$data = array();
+
+		foreach ( $this->rows as $key => $value ) {
+			array_push( $data, $value );
+		}
+
+		return $data;
+	}
+
 	public function __destruct() {
 		unset($this);
 	}

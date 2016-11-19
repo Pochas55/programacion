@@ -76,6 +76,11 @@ html {
 
 .u-button:hover { opacity: .75; }
 
+.u-error {
+	background-color: #E50914;
+	color: #FFF;
+}
+
 @media screen and (min-width: 64em) {
 	.LogoApp { width: 20%; }
 
