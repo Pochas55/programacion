@@ -4,22 +4,26 @@ final class RouterController {
 	private $page;
 
 	public function __construct() {
-		//Autocargamos todas las clases que necesita la aplicación
+		//autocargamos todas las clases que necesita la aplicación para funcionar
 		require_once('./controllers/AutoloadController.php');
 		new AutoloadController();
 
 		//defino y asigno la variable que controla las rutas de la aplicacion y la variable que invoca las vistas html
 		$this->route = isset( $_GET['r'] ) ? $_GET['r'] : 'home';
 		$this->page = new ViewController();
-
-		//inicio y valido que exista una sesión
+		
+		//valido si existe una sesión, sino la inicializo
 		SessionController::init_session();
 
+		//si la variable ok de tipo SESSION es true se ejecuta el método privado app_routes() sino se ejecuta app_access()
 		return ( $_SESSION['ok'] )
 			? $this->app_routes()
 			: $this->app_access();
 	}
 
+	//Método privado que valida el acceso a la aplicación:
+		//Si los valores del formulario de login NO EXISTEN, la aplicación carga el formulario
+		//SI EXISTEN valida que los datos EXISTAN en la BD
 	private function app_access() {
 		if ( !isset($_POST['user'])  && !isset($_POST['pass']) ) {
 			$this->page->load_view('login');
@@ -31,6 +35,9 @@ final class RouterController {
 		}
 	}
 
+	//Método privado que valida si los datos del formulario login EXISTEN en la BD
+		//Si la BD NO regresa registro (NULL) se carga el formulario de login con un mensaje de error
+		//Si la BD SI regresa registro se cambia a true el valor de la variable ok de tipo SESSION, se crean variables de sesión para el usuario activo y se carga el home de la aplicación 
 	private function app_session( $data = array(), $user ) {
 		if ( empty($data) ) {
 			//echo 'El usuario y el password son incorrectos';
@@ -53,6 +60,9 @@ final class RouterController {
 		}
 	}
 
+	//Método privado que contiene la navegación de la aplicación:
+		//controla las peticiones entre la vista (plantillas HTML e interacciones del usuario)
+		//y el modelo (Clases POO de las Tablas y las operaciones CRUD de la BD)
 	private function app_routes() {
 		switch ( $this->route ) {
 			case 'home':
