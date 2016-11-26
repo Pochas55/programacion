@@ -44,6 +44,15 @@ if ( $_SESSION['ok'] ) {
 				</ul>
 			</nav>
 	');
+
+	printf('
+			<aside class="App-userInfo">
+				Bienvenid@ <b>%s</b> tu nivel es <b>%s</b>
+			</aside>
+		',
+		$_SESSION['name'],
+		$_SESSION['role']
+	);
 }
 
 print('

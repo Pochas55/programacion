@@ -23,7 +23,6 @@ final class SessionController {
 	public function login($user, $pass) {
 		$this->session = new UsersModel();
 		return $this->session->login($user, $pass);
-
 	}
 
 	public function logout() {

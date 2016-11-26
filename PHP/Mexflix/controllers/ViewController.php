@@ -8,6 +8,10 @@ final class ViewController {
 		require_once( self::$view_path . 'footer.php' );
 	}
 
+	public function load_file( $file ) {
+		require_once( self::$view_path . $file . '.php' );
+	}
+
 	public function __destruct() {
 		unset($this);
 	}
