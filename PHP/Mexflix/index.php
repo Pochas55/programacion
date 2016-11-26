@@ -1,3 +1,3 @@
 <?php 
-require_once('./controllers/RouterController.php');
+require('./controllers/RouterController.php');
 new RouterController();

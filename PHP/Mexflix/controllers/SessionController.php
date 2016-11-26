@@ -6,9 +6,9 @@ final class SessionController {
 		//http://php.net/manual/es/function.session-start.php
 		//http://php.net/manual/es/session.configuration.php
 		$session_options = array(
-			'use_only_cookies' => 1,
-			'auto_start' => 1,
-			'read_and_close' => true
+			//'use_only_cookies' => 1,
+			//'auto_start' => 1,
+			//'read_and_close' => true
 		);
 
 		if ( !isset( $_SESSION ) )

@@ -93,6 +93,21 @@ final class RouterController {
 		}
 	}
 
+	public static function app_unauthorized() {
+		$file = new ViewController();
+		$file->load_file('401');
+	}
+
+	public static function app_reload() {
+		print '
+			<script>
+				window.onload = function () {
+					reloadPage("' . $_GET['r'] . '");
+				}
+			</script>
+		';
+	}
+
 	public function __destruct() {
 		unset($this);
 	}

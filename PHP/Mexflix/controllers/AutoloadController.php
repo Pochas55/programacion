@@ -8,13 +8,13 @@ final class AutoloadController {
 			$views_path = './views/' . $class_name . '.php';
 
 			if ( file_exists($models_path) )
-				require_once($models_path);
+				require($models_path);
 
 			if ( file_exists($controllers_path) )
-				require_once($controllers_path);
+				require($controllers_path);
 
 			if( file_exists($views_path) )
-				require_once($views_path);
+				require($views_path);
 		});
 	}
 
