@@ -45,9 +45,8 @@ input[type="radio"] {
 	vertical-align: baseline;
 }
 
-input[type="submit"] {
-	width: initial;
-}
+input[type="submit"],
+input[type="button"] { width: initial; }
 
 table {
 	width: 100%;
@@ -56,8 +55,9 @@ table {
 
 table td,
 table th { 
-	padding: .15rem;
+	padding: .25rem;
 	width: 10%;
+	text-align: center;
 	word-break: break-all;
 }
 
@@ -113,6 +113,20 @@ table tr:nth-child(odd):not(:first-child) { background-color: #999; }
 .App-home > * {
 	padding: .5rem;
 	text-align: center;
+}
+
+.App-movie {
+	margin: auto;
+	text-align: center;
+}
+
+.App-movie > * { padding: .25rem; } 
+
+.App-movie iframe {
+	display: block;
+	margin: auto;
+	width: 560px;
+	height: 315px;
 }
 
 .u-button {
