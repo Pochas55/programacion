@@ -126,9 +126,9 @@ final class MoviesView {
 	}
 
 	public function add_form() {
-		$status_list = $this->list( new StatusModel(), 'state_id', 'state_name' );
-		$genres_list = $this->list( new GenresModel(), 'genre_id', 'genre_name' );
-		$countries_list = $this->list( new CountriesModel(), 'country_id', 'country_name' );
+		$status_list = $this->list_add( new StatusModel(), 'state_id', 'state_name' );
+		$genres_list = $this->list_add( new GenresModel(), 'genre_id', 'genre_name' );
+		$countries_list = $this->list_add( new CountriesModel(), 'country_id', 'country_name' );
 
 		printf('
 			<h2 class="u-message">AGREGAR ' . self::$title . '</h2>
@@ -255,7 +255,7 @@ final class MoviesView {
 		}
 	}
 
-	private function list( $table, $id, $name ) {
+	private function list_add( $table, $id, $name ) {
 		$records = $table->get();
 		$list = '';
 
