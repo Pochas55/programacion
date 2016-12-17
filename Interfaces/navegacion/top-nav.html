@@ -144,6 +144,13 @@
 			color: #FFF;
 		}
 
+		.Main {
+			max-width: 1200px;
+			margin: auto;
+			padding: 5rem 1rem 1rem;
+			background-color: #EEE;
+		}
+
 		@media screen and (min-width: 64em) {
 			.Header-container {
 				display: flex;
@@ -280,5 +287,28 @@
 			<p>Párrafo 50</p>
 		</article>
 	</main>
+	<script>
+		(function (d, w) {
+			'use strict';
+
+			var panel = d.querySelector('.Panel'),
+				panelBtn = d.querySelector('.Panel-button'),
+				mq = w.matchMedia('(min-width: 64em)');
+
+			function closePanel(mq) {
+				return (mq.matches)
+					? panel.classList.remove('is-active')
+					: false;
+			}
+
+			panelBtn.onclick = function (e) {
+				e.preventDefault();
+				panel.classList.toggle('is-active');
+			};
+
+			w.onload = closePanel(mq);
+			mq.addListener(closePanel);
+		})(document, window);
+	</script>
 </body>
 </html>
