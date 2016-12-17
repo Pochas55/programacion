@@ -143,6 +143,49 @@
 			background-color: #FF5700;
 			color: #FFF;
 		}
+
+		@media screen and (min-width: 64em) {
+			.Header-container {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.Logo {
+				width: 10%;
+				flex: none;
+				background-color: transparent;
+			}
+
+			.Panel {
+				position: static;
+				top: 0;
+				flex: none;
+				width: 90%;
+				max-height: none;
+				overflow: visible;
+				background-color: transparent;
+				transition: none;
+				transform: translateY(0);
+			}
+			
+			.Panel-button { display: none; }
+
+			.Menu-listItem {
+				border: 0;
+				text-align: right;
+			}
+
+			.Menu-item {
+				display: inline;
+				border: 0;
+			}
+
+			.Menu-link { display: inline; }
+
+			.Menu-link:hover { background-color: transparent; }
+		}
 	</style>
 </head>
 <body>
