@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Envío de Formulario con AJAX</title>
+	<link rel="stylesheet" href="./form.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<h1>Envío de Formulario con AJAX</h1>
+	<form action="">
+		<legend>Envíanos tus comentarios</legend>
+		<div>
+			<input type="text" name="nombre" title="Tu nombre" placeholder="Escribe tu nombre" pattern="[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+" autofocus required>
+		</div>
+		<div>
+			<input type="email" name="email" title="Tu email" placeholder="Escribe tu email" pattern="[\w-\.]+@([\w-]+\.)+[\w-]{2,4}" required>
+		</div>
+		<div>
+			<input type="text" name="asunto" title="Asunto a tratar" placeholder="Asunto a tratar" required>
+		</div>
+		<div>
+			<textarea name="comentarios" title="Tus comentarios" placeholder="Escribe tus comentarios" cols="50" rows="5" required></textarea>
+		</div>
+		<div class="preload  hidden">
+			<i class="fa  fa-refresh  fa-spin  fa-5x"></i>
+		</div>
+		<div class="message  hidden"></div>
+		<div>
+			<input type="submit" value="enviar">
+		</div>
+	</form>
+	<script src="./form.js"></script>
+</body>
+</html>
