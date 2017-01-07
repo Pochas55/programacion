@@ -12,6 +12,7 @@ Al final del curso el estudiante desarrollará una aplicación con las tecnolog�
 * [jQuery CheatSheet](http://overapi.com/jquery/)
 * [jQuery Plugins](https://plugins.jquery.com/)
 * [Tal vez no necesitas jQuery](http://youmightnotneedjquery.com/)
+* [plainJS](https://plainjs.com/)
 * [Cambios en la versión 3](http://jquery.com/upgrade-guide/3.0/)
 * [Curso de jQuery en Bextlán](https://www.youtube.com/playlist?list=PLvq-jIkSeTUYvLDfVUXOhnZ6QSouIfQQ7)
 
