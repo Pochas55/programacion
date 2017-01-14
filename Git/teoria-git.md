@@ -1,6 +1,4 @@
-# Herramientas Frontend
-
-![Herramientas Frontend](http://bextlan.com/img/para-cursos/herramientas-frontend.jpg)
+# Git & GitHub
 
 ## Índice
 
