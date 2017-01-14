@@ -208,12 +208,14 @@ $ > git log > commits.txt
 
 
 ## Markdown
-	* [¿Qué es?](http://whatismarkdown.com/)
-	* [Guía](http://joedicastro.com/pages/markdown.html)
-	* [Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-	* [Tutorial interactivo](http://www.markdowntutorial.com/)
-	* [Dillinger - md en vivo](http://dillinger.io/)
-	* [Hashify  - md en vivo](http://hashify.me/)
+
+* [¿Qué es?](http://whatismarkdown.com/)
+* [Guía](http://joedicastro.com/pages/markdown.html)
+* [Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Tutorial interactivo](http://www.markdowntutorial.com/)
+* [CommonMark](http://commonmark.org/)
+* [Dillinger - md en vivo](http://dillinger.io/)
+* [Hashify  - md en vivo](http://hashify.me/)
 
 **[⬆ regresar al índice](#Índice)**
 
