@@ -36,6 +36,6 @@ Al final del curso el estudiante desarrollará una aplicación con las tecnolog�
 
 ## :date: Entrega Final: 
 
-**Lunes 16 Enero 2017 11:59:59pm**
+**Lunes 23 Enero 2017 11:59:59pm**
 
 La entrega puede ser vía email, dropbox, google drive, one drive o cualquier medio de transferencia de archivos al correo jonmircha@gmail.com
