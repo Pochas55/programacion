@@ -1,0 +1,45 @@
+/*
+	Mobile First Layout
+
+	General CSS
+		xs  -  extra small devices < 480px (30em)
+			-  range: 0 - 320px - 479px
+
+	Media Queries - min-width
+		sm  -  small devices >= 480px (30em)
+			-  range: 480px - 767px
+		md  -  medium devices >= 768px (48em)
+			-  range: 768px - 1023px
+		lg  -  large devices >= 1024px (64em)
+			-  range: 1024px - 1199px
+		xl  -  extralarge devices >= 1200px (75em)
+			-  range: +1200px
+
+	Sistema 12 columnas
+		( n-col / base ) * 100 = % de cada col
+		(   7   /  12  ) * 100 = 58.33333333333333%
+		(   3   /  12  ) * 100 = 25%
+*/
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+
+/* 
+ * This reset is based on the * {box-sizing: border-box} 
+ * FTW Paul Irish
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+
+/* html, body & children */
+/* ==========================================================================
+   GRID by COLUMNS and by PERCENTAGES
+   ========================================================================== */
+/* grid 12 columns */
+/* grid by percentages */
+/* ==========================================================================
+   LAYOUT FLEXBOX MODEL
+   ========================================================================== */
+
+/* container properties */
+/* children properties */
