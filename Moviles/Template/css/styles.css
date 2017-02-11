@@ -1,0 +1,39 @@
+.container-fluid,
+.container {
+    	border: medium solid #000;
+	background-color: #333;
+    color: greenyellow;
+}
+
+.item {
+	border: thin solid greenyellow;
+	background-color: #999;
+}
+
+.u-xs-none { display: none; }
+
+.u-xs-block { display: block; }
+
+@media screen and (min-width: 30em){
+    .u-sm-none { display: none; }
+
+    .u-sm-block { display: block; }
+}
+
+@media screen and (min-width: 48em){
+    .u-md-none { display: none; }
+
+    .u-md-block { display: block; }
+}
+
+@media screen and (min-width: 64em){
+    .u-lg-none { display: none; }
+
+    .u-lg-block { display: block; }
+}
+
+@media screen and (min-width: 75em){
+    .u-xl-none { display: none; }
+
+    .u-lg-block { display: block; }
+}

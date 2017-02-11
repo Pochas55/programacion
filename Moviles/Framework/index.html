@@ -5,10 +5,55 @@
 	<meta charset="UTF-8">
 	<title>Maquetación Responsive</title>
 	<link rel="stylesheet" href="./my_framework.css">
+	<style>
+		.container-fluid,
+		.container {
+			border: medium solid #000;
+			background-color: #333;
+		}
+
+		.item {
+			border: thin solid greenyellow;
+			background-color: #999;
+		}
+	</style>
 </head>
 <body>
 	<h1>Maquetación Flexbox Responsive Mobile First</h1>
 	<h2>Con retícula a 12 columnas</h2>
+	<section class="container sm-flex sm-flex-row sm-flex-wrap sm-jc-flex-end md-jc-center lg-jc-space-between xl-jc-flex-end">
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">1</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">2</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">3</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">4</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">5</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">6</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">7</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">8</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">9</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">10</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">11</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">12</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">13</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">14</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">15</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">16</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">17</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">18</article>
+		<article class="item xs-c12 sm-c6 md-c4 lg-c3 xl-c2">19</article>
+	</section>
 	<h2>Con retícula porcentual</h2>
+	<section class="container xs-flex xs-flex-wrap xs-jc-space-around">
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">1</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">2</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">3</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">4</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10 xl-order--1">5</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">6</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">7</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">8</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">9</article>
+		<article class="item xs-w50 sm-w30 md-w20 lg-w100 xl-w10">10</article>
+	</section>
 </body>
 </html>
