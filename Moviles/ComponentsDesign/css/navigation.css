@@ -5,7 +5,7 @@
 	z-index: 997;
 	width: 100%;
 	height: 4rem;
-	background-color: #222;
+	background-color: rgba(34, 34, 34, .8);
 	color: #FFF;
 }
 
@@ -20,7 +20,7 @@
 	z-index: 998;
 	width: 100%;
 	height: 4rem;
-	background-color: #222;
+	/*background-color: #222;*/
 }
 
 .Logo-link {
@@ -42,7 +42,7 @@
 	max-width: 0;
 	max-height: 100%;
 	overflow: hidden;
-	background-color: #222;
+	background-color: rgba(34, 34, 34, .8);
 	transition: all .3s ease-out;
 	transform: translateX(-100vw);
 }

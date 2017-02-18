@@ -1,10 +1,6 @@
-@import url('./my_framework.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/hamburgers/0.7.0/hamburgers.min.css');
-@import url('./navigation.css');
-
 .container-fluid,
 .container {
-    	border: medium solid #000;
+    border: medium solid #000;
 	background-color: #333;
     color: greenyellow;
 }
@@ -17,6 +13,29 @@
 .u-xs-none { display: none; }
 
 .u-xs-block { display: block; }
+
+.HomeBackground {
+	/*position: relative;
+	width: 100vw;
+	height: inherit;*/
+}
+
+.HomeBackground-video {
+	/*display: block;
+	width: inherit;
+	height: inherit;*/
+}
+
+.HomeBackground-text {
+	position: absolute;
+	top: 20%;
+	width: inherit;
+	height: inherit;
+	font-size: 5vw;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+}
 
 @media screen and (min-width: 30em){
     .u-sm-none { display: none; }

@@ -5,11 +5,11 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "servidorweb": "browser-sync start --server --files \".\""
+    "servidorweb": "browser-sync start --server --files \"./**\""
   },
   "author": "Jonathan MirCha <jonmircha@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    	
+    "browser-sync": "^2.18.8"
   }
 }
