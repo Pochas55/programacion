@@ -10,32 +10,46 @@
 	background-color: #999;
 }
 
-.u-xs-none { display: none; }
-
-.u-xs-block { display: block; }
-
 .HomeBackground {
-	/*position: relative;
+	position: relative;
 	width: 100vw;
-	height: inherit;*/
+	height: 100vh;
+	background-image: url('../media/mock-up.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 
 .HomeBackground-video {
-	/*display: block;
 	width: inherit;
-	height: inherit;*/
+	height: inherit;
 }
 
 .HomeBackground-text {
 	position: absolute;
-	top: 20%;
-	width: inherit;
+	top: 30%;
+	width: calc(100% - 20px);
 	height: inherit;
-	font-size: 5vw;
+	padding: 1rem;
+	font-family: 'Montserrat';
 	font-weight: bold;
 	text-align: center;
 	color: #FFF;
+	/*background-color: red;*/
 }
+
+.HomeBackground-text > h2 {
+	font-size: 8vw;
+	margin: 1rem auto;
+}
+
+.HomeBackground-text > h3 {
+	font-size: 4vw;
+}
+
+.u-xs-none { display: none; }
+
+.u-xs-block { display: block; }
 
 @media screen and (min-width: 30em){
     .u-sm-none { display: none; }
@@ -50,9 +64,14 @@
 }
 
 @media screen and (min-width: 64em){
+	.HomeBackground {
+		background-image: none;
+	}
+	
     .u-lg-none { display: none; }
 
     .u-lg-block { display: block; }
+
 }
 
 @media screen and (min-width: 75em){
