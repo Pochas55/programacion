@@ -1,4 +1,6 @@
 @import url('./my_framework.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/hamburgers/0.7.0/hamburgers.min.css');
+@import url('./navigation.css');
 
 .container-fluid,
 .container {
