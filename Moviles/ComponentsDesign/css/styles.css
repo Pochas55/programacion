@@ -2,12 +2,18 @@
 .container {
     /*border: medium solid #000;
 	background-color: #333;*/
-    color: greenyellow;
+    /*color: greenyellow;*/
 }
 
 .item {
-	border: thin solid greenyellow;
-	background-color: #999;
+	/*border: thin solid greenyellow;
+	background-color: #999;*/
+}
+
+img  {
+	display: block;
+	max-width: 100%;
+	height: auto;
 }
 
 .HomeBackground {
@@ -47,9 +53,75 @@
 	font-size: 4vw;
 }
 
+.DoYouWant-container > *, .Quality, .Contact, .FooterNav, .Footer {
+	padding: 1rem;
+}
+
+.Quality {
+	background-image: 
+		url('http://www.mediasmart.io/assets/images/bck-dots.png'),
+		url('http://www.mediasmart.io/assets/images/bck-map.png');
+	background-repeat:
+		repeat,
+		no-repeat;
+}
+
+.Quality-data, .Contact-btn {
+	background-color: #FFF;
+	max-width: 300px;
+	margin: 2rem;
+	padding: 2rem;
+	text-align: center;
+	transform: skew(-20deg, 0);
+}
+
+.Quality-dataContainer, .Contact-btnContainer {
+	transform: skew(200deg, 0);
+}
+
+.Testimony {
+	margin: auto;
+	padding: 1rem;
+}
+
+.Contact {
+	background-image: 
+		url('http://www.mediasmart.io/assets/images/bck-dots.png'),
+		url('http://www.mediasmart.io/assets/images/bck-desk.jpg');
+	background-repeat:
+		repeat,
+		no-repeat;
+}
+
+.Contact-btn {
+	margin: auto;
+}
+
 .u-xs-none { display: none; }
 
 .u-xs-block { display: block; }
+
+.u-xs-inline { display: inline; }
+
+.u-font-opensans { font-family: 'Open Sans'; }
+
+.u-font-montserrat { font-family: 'Montserrat'; }
+
+.u-font-merriweather { font-family: 'Merriweather'; }
+
+.u-fc-white { color: #FFF; }
+
+.u-bg-red { background-color: #FF3248; }
+
+.u-bg-red-gradient { background: linear-gradient(#FF3248, #222); }
+
+.u-ta-center { text-align: center; }
+
+.u-ta-left { text-align: left; }
+
+.u-round { border-radius: 100%; }
+
+.u-uppercase { text-transform: uppercase; }
 
 @media screen and (min-width: 30em){
 	.HomeBackground-text > h2 { font-size: 6vw; }
@@ -65,6 +137,8 @@
     .u-md-none { display: none; }
 
     .u-md-block { display: block; }
+
+	.u-md-ta-left { text-align: left; }
 }
 
 @media screen and (min-width: 64em){
@@ -80,5 +154,5 @@
 @media screen and (min-width: 75em){
     .u-xl-none { display: none; }
 
-    .u-lg-block { display: block; }
+    .u-xl-block { display: block; }
 }
