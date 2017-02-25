@@ -71,11 +71,11 @@ Al final del curso el estudiante tendrá los conocimientos necesarios para imple
 ## :mortar_board: EVALUACIÓN:
 
 * 100% Avances de Proyecto Final
-	1. 60% Layout del Sitio Versión Desktop / Tablet / Mobile (20% c/u)
+	1. 60% Layout del Sitio Versión Desktop / Tablet / Mobile (por lo menos Home) (20% c/u)
 	1. 10% Navegación Responsive
 	1. 10% Uso de sistemas de nomenclatura
-	1. 10% Desarrollo de componente web propio
-	1. 10% Implementación de componente web propio en el proyecto
+	1. N/A 10% Desarrollo de componente web propio
+	1. N/A 10% Implementación de componente web propio en el proyecto
 * Notas:
 	* La maquetación tiene que ser usando Flexbox, queda prohibido usar floats, en caso de hacerlo estará reprobado
 	* Queda prohibido usar frameworks Frontend de terceros, en caso de hacerlo estará reprobado

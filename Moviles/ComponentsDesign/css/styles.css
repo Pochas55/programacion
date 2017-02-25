@@ -1,7 +1,7 @@
 .container-fluid,
 .container {
-    border: medium solid #000;
-	background-color: #333;
+    /*border: medium solid #000;
+	background-color: #333;*/
     color: greenyellow;
 }
 
@@ -22,7 +22,7 @@
 
 .HomeBackground-video {
 	width: inherit;
-	height: inherit;
+	height: auto;
 }
 
 .HomeBackground-text {
@@ -52,6 +52,10 @@
 .u-xs-block { display: block; }
 
 @media screen and (min-width: 30em){
+	.HomeBackground-text > h2 { font-size: 6vw; }
+
+	.HomeBackground-text > h3 { font-size: 3.5vw; }
+
     .u-sm-none { display: none; }
 
     .u-sm-block { display: block; }
@@ -64,14 +68,13 @@
 }
 
 @media screen and (min-width: 64em){
-	.HomeBackground {
-		background-image: none;
-	}
-	
+	.HomeBackground { height: auto; }
+
+	.HomeBackground-text > h3 { font-size: 2.5vw; }
+
     .u-lg-none { display: none; }
 
     .u-lg-block { display: block; }
-
 }
 
 @media screen and (min-width: 75em){
