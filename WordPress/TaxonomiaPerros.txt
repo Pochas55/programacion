@@ -1,0 +1,43 @@
+Taxnomía de Sitio de Perros
+	Home(loop)
+	El Perro(p)
+	Comportamiento(p)
+	Sentidos(p)
+	Videos(p)
+	Razas(c)
+	En esta categoría podrás encontrar una clasificación de los perros, basada en su tamaño.
+		Gigantes(sc)
+		Esta categoría esta destinada a los perros gigantes.
+			Bobtail(e)
+			Dogo de Burdeos(e)
+			Gran Danés(e)
+			Mastín Napolitano(e)
+			San Bernardo(e)
+			Terranova(e)
+		Grandes(sc)
+		Esta categoría esta destinada a los perros grandes.
+			Boxer(e)
+			Dálmata(e)
+			Dóberman(e)
+			Husky Siberiano(e)
+			Labrador(e)
+			Pastor Alemán(e)
+		Medianos(sc)
+		Esta categoría esta destinada a los perros medianos.
+			Basset Hound(e)
+			Beagle(e)
+			Border Collie(e)
+			Bull Dog(e)
+			Cocker Spaniel(e)
+			Staffordshire Bull Terrier(e)
+		Pequeños(sc)
+		Esta categoría esta destinada a los perros pequeños.
+			Bichón(e)
+			Chihuahua(e)
+			Pug(e)
+			Schnauzer(e)
+			Xoloitzcuintle(e)
+			Yorkshire(e)
+		Sin Raza(sc)
+		Esta categoría esta destinada a los perros sin raza.
+			Únicos(e)
