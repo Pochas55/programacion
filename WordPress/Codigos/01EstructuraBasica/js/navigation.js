@@ -19,6 +19,7 @@
 		hamburger.classList.toggle('is-active');
 	};
 
-	w.onload = closePanel(mq);
+	//w.onload = closePanel(mq);
+	closePanel(mq);
 	mq.addListener(closePanel);
 })(document, window);
