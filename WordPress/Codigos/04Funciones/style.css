@@ -62,6 +62,25 @@ img {
 
 .Template { font-size: 2rem; }
 
+.MenuSocial {
+	text-align: center;
+	margin: auto;
+}
+
+.MenuSocial li {
+	display: inline;
+	padding: 0 1rem;
+	font-size: 2rem;
+}
+
+.WidgetItem {
+	background-color: #CCC;
+}
+
+.WidgetItem-title {
+	color: #444;
+}
+
 @media screen and (min-width: 64em) {
 
 }

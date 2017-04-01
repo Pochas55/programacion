@@ -72,20 +72,20 @@
 	background-color: #ADFF2F;
 }
 
-.Menu { width: 100vw; }
+.MenuMain { width: 100vw; }
 
-.Menu-listItem { 
+.MenuMain-listItem { 
 	border-top: thin solid #ADFF2F;
 	text-align: center;
 }
 
-.Menu-item {
+.MenuMain li {
 	display: block;
 	border-bottom: thin solid #ADFF2F;
 	list-style-type: none;
 }
 
-.Menu-link {
+.MenuMain a {
 	display: block;
 	padding: 1rem;
 	font-weight: bold;
@@ -93,7 +93,7 @@
 	transition: all .3s ease-out;
 }
 
-.Menu-link:hover {
+.MenuMain a:hover {
 	background-color: #ADFF2F;
 	color: #FFF;
 }
@@ -133,19 +133,47 @@
 	
 	.Panel-button { display: none; }
 
-	.Menu { width: 100%; }
+	.MenuMain { width: 100%; }
 
-	.Menu-listItem {
+	.MenuMain-listItem {
 		border: 0;
 		text-align: right;
 	}
 
-	.Menu-item {
+	.MenuMain li {
 		display: inline;
 		border: 0;
 	}
 
-	.Menu-link { display: inline; }
+	.MenuMain a { display: inline; }
 
-	.Menu-link:hover { background-color: transparent; }
+	.MenuMain a:hover { background-color: transparent; }
+
+	.menu-item-has-children { position: relative; }
+
+	.menu-item-has-children:hover .sub-menu {
+		display: block;
+		opacity: 1;
+	}
+
+	.sub-menu {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+		display: none;
+		background-color: #222;
+		opacity: 0;
+		transition: all .3s ease-out;
+	}
+	
+	.sub-menu a {
+		display: block;
+		padding: 1rem;
+		transition: all.3s ease-out;
+	}
+
+	.sub-menu a:hover {
+		color: #222;
+		background-color: greenyellow;
+	}
 }

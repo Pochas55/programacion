@@ -15,14 +15,16 @@
 				'theme_location' => 'menu_social',
 				'container' => 'nav',
 				'container_id' => 'MenuSocial',
-				'container_class' => 'Menu  container',
+				'container_class' => 'MenuSocial',
 				'menu_id' => 'MenuSocial-listItem',
-				'menu_class' => 'Menu-listItem'
+				'menu_class' => 'MenuSocial-listItem'
 			);
 			wp_nav_menu( $args );
 		?>
+		<aside class="container">
+			<?php dynamic_sidebar(2); ?>
+		</aside>
 	</footer>
-	<script src="<?php bloginfo('template_url'); ?>/js/navigation.js"></script>
 	<?php wp_footer(); ?>
 </body>
 </html>
